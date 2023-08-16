@@ -14,5 +14,5 @@ https://yuyutw123.github.io/tags/Selenium/
 https://yuyutw123.github.io/tags/Tkinter/
 https://yuyutw123.github.io/tags/JavaScript/
 https://yuyutw123.github.io/tags/CSS/
-https://yuyutw123.github.io/categories/Side-Project/
 https://yuyutw123.github.io/categories/Diary/
+https://yuyutw123.github.io/categories/Side-Project/
