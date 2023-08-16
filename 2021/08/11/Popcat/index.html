@@ -1,0 +1,185 @@
+<!DOCTYPE html><html lang="zh-tw" data-theme="dark"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"><title>Popcat 自動點擊 | YuYutw123's Blog</title><meta name="author" content="YuYutw123"><meta name="copyright" content="YuYutw123"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#0d0d0d"><meta name="description" content="運用爬蟲實現背景網頁自動點擊動機2021年8月7日，一款網頁遊戲突然受到台灣人的關注。 遊戲以網路迷因「Popcat」為題材，進入網站後只要觸發鍵盤或滑鼠任何一個按鍵都能使點擊次數+1，網頁會用ip偵測玩家所在的地區，將點擊次數以國家為單位統計。 因其簡單的遊戲特性和競爭性質，造成此遊戲在台灣掀起一陣旋風，各路大神都在提供快速點擊的方法，而我也投入其中。 最初想法在當時接觸到這款遊戲時，就在想有什">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Popcat 自動點擊">
+<meta property="og:url" content="https://yuyutw123.github.io/2021/08/11/Popcat/index.html">
+<meta property="og:site_name" content="YuYutw123&#39;s Blog">
+<meta property="og:description" content="運用爬蟲實現背景網頁自動點擊動機2021年8月7日，一款網頁遊戲突然受到台灣人的關注。 遊戲以網路迷因「Popcat」為題材，進入網站後只要觸發鍵盤或滑鼠任何一個按鍵都能使點擊次數+1，網頁會用ip偵測玩家所在的地區，將點擊次數以國家為單位統計。 因其簡單的遊戲特性和競爭性質，造成此遊戲在台灣掀起一陣旋風，各路大神都在提供快速點擊的方法，而我也投入其中。 最初想法在當時接觸到這款遊戲時，就在想有什">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://yuyutw123.github.io/img/banner.png">
+<meta property="article:published_time" content="2021-08-11T12:26:35.000Z">
+<meta property="article:modified_time" content="2023-08-08T16:09:33.887Z">
+<meta property="article:author" content="YuYutw123">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="Selenium">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://yuyutw123.github.io/img/banner.png"><link rel="shortcut icon" href="/img/logo_small.png"><link rel="canonical" href="https://yuyutw123.github.io/2021/08/11/Popcat/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  }
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Popcat 自動點擊',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-08-09 00:09:33'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="YuYutw123's Blog" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">6</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">5</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">2</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首頁</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 時間軸</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 標籤</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-box"></i><span> 分類</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 關於</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg fixed" id="page-header" style="background-image: url('https://i.imgur.com/L3fpK7k.png')"><nav id="nav"><span id="blog-info"><a href="/" title="YuYutw123's Blog"><span class="site-name">YuYutw123's Blog</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首頁</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 時間軸</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 標籤</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-box"></i><span> 分類</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 關於</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Popcat 自動點擊</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">發表於</span><time class="post-meta-date-created" datetime="2021-08-11T12:26:35.000Z" title="發表於 2021-08-11 20:26:35">2021-08-11</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新於</span><time class="post-meta-date-updated" datetime="2023-08-08T16:09:33.887Z" title="更新於 2023-08-09 00:09:33">2023-08-09</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">閱讀時長:</span><span>2分鐘</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Popcat 自動點擊"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">閱讀量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="運用爬蟲實現背景網頁自動點擊"><a href="#運用爬蟲實現背景網頁自動點擊" class="headerlink" title="運用爬蟲實現背景網頁自動點擊"></a>運用爬蟲實現背景網頁自動點擊</h1><h2 id="動機"><a href="#動機" class="headerlink" title="動機"></a>動機</h2><p>2021年8月7日，一款網頁遊戲突然受到台灣人的關注。</p>
+<p>遊戲以網路迷因「Popcat」為題材，進入網站後只要觸發鍵盤或滑鼠任何一個按鍵都能使點擊次數+1，網頁會用ip偵測玩家所在的地區，將點擊次數以國家為單位統計。</p>
+<p>因其簡單的遊戲特性和競爭性質，造成此遊戲在台灣掀起一陣旋風，各路大神都在提供快速點擊的方法，而我也投入其中。<br><img src="https://i.imgur.com/L3fpK7k.png"></p>
+<h2 id="最初想法"><a href="#最初想法" class="headerlink" title="最初想法"></a>最初想法</h2><p>在當時接觸到這款遊戲時，就在想有什麼方法能夠讓他自動點擊，不用耗費人力，可以放著讓它自己跑。為此我下載了一款自動點擊器，他能模擬真實滑鼠點擊，可以開啟後掛在網頁讓他自己點。</p>
+<h2 id="發現不便"><a href="#發現不便" class="headerlink" title="發現不便"></a>發現不便</h2><p>使用一段時間後，我發現了一個問題，那個程式的運作原理是模擬真實滑鼠點擊，所以我電腦畫面要留在那個頁面，不能同時做其他事，這個不便使我萌生了自己寫一個程式讓他能在背景跑的念頭。</p>
+<h2 id="撰寫新程式"><a href="#撰寫新程式" class="headerlink" title="撰寫新程式"></a>撰寫新程式</h2><p>要寫程式，首先要考慮的是用什麼語言。</p>
+<p>既然是要跑網頁，我首先想到的是python的爬蟲，雖然對python不甚熟悉，但高一社團課時由稍微接觸過，了解可以用xpath抓到想要的元素，再用指令去點擊，點擊頻率則用sleep控制。</p>
+<h2 id="程式碼"><a href="#程式碼" class="headerlink" title="程式碼"></a>程式碼</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"><span class="keyword">from</span> time <span class="keyword">import</span> sleep</span><br><span class="line"></span><br><span class="line">chromeDriverPath = <span class="string">r&quot;chromedriver.exe&quot;</span></span><br><span class="line">site = webdriver.ChromeOptions()</span><br><span class="line"><span class="comment"># site</span></span><br><span class="line"></span><br><span class="line">browser = webdriver.Chrome(executable_path=chromeDriverPath) </span><br><span class="line"></span><br><span class="line">url = <span class="string">&#x27;https://popcat.click&#x27;</span> <span class="comment">#給網址</span></span><br><span class="line">browser.get(url) <span class="comment">#抓網址</span></span><br><span class="line">browser.maximize_window() <span class="comment">#視窗最大化</span></span><br><span class="line">sleep(<span class="number">2</span>)<span class="comment">#怕有人網頁還沒跑好，所以睡個兩秒</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#用無限迴圈執行點擊作業</span></span><br><span class="line"><span class="keyword">while</span> <span class="number">1</span>:</span><br><span class="line">    browser.find_element_by_xpath(<span class="string">&#x27;//*[@id=&quot;app&quot;]/img&#x27;</span>).click() <span class="comment">#我是抓標題POPCAT的xpath來點</span></span><br><span class="line">    browser.find_element_by_xpath(<span class="string">&#x27;//*[@id=&quot;app&quot;]/img&#x27;</span>).click()</span><br><span class="line">    sleep(<span class="number">0.03</span>) <span class="comment">#睡覺</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>By YuYu December 7, 2021 1:52 PM</p>
+</blockquote>
+<h2 id="測試"><a href="#測試" class="headerlink" title="測試"></a>測試</h2><p>完成程式後，接著就是測試環節，我用了自己的電腦進行測試，程式能夠順利執行。<br>因此，我將程式的demo影片上傳到Youtube。<br>並在說明欄附上程式下載連結。</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/lHarZ_vUgmI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<h2 id="成效"><a href="#成效" class="headerlink" title="成效"></a>成效</h2><p>這部影片獲得了5000多觀看, 46個讚和38則留言<br><img src="https://i.imgur.com/LoawKl8.png"></p>
+<p>新版和舊版的程式下載次數共1萬多次<br><img src="https://i.imgur.com/G8Zyoj4.png"></p>
+<p>在Github上也獲得了一顆星星(很少但我很開心 :D)<br><img src="https://i.imgur.com/rYPMBZ5.png"></p>
+<h2 id="心得"><a href="#心得" class="headerlink" title="心得"></a>心得</h2><p>其實我也有將程式上傳到論壇，但時間久那篇文就被刪掉了，在哪裡有人和我建議能用代理ip來跑，其實那時的我是第一次聽到代理ip，研究了好久，但最終不知是ip的問題，還是我程式的問題，總是無法順利請求伺服器。<br>最終，代理ip的程式只好作罷，但自己也還是學到了不少。</p>
+<h2 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h2><p>Github Repo: <a target="_blank" rel="noopener" href="https://github.com/YuYutw123/popcatclick">https://github.com/YuYutw123/popcatclick</a></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://yuyutw123.github.io">YuYutw123</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章連結: </span><span class="post-copyright-info"><a href="https://yuyutw123.github.io/2021/08/11/Popcat/">https://yuyutw123.github.io/2021/08/11/Popcat/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版權聲明: </span><span class="post-copyright-info">本部落格所有文章除特別聲明外，均採用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 許可協議。轉載請註明來自 <a href="https://yuyutw123.github.io" target="_blank">YuYutw123's Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Python/">Python</a><a class="post-meta__tags" href="/tags/Selenium/">Selenium</a></div><div class="post_share"><div class="social-share" data-image="/img/banner.png" data-sites="twitter"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-full"><a href="/2022/04/17/YTCC/" title="YouTube CC字幕輸出工具"><img class="cover" src="/img/banner.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">YouTube CC字幕輸出工具</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相關推薦</span></div><div class="relatedPosts-list"><div><a href="/2022/04/17/YTCC/" title="YouTube CC字幕輸出工具"><img class="cover" src="/img/banner.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-04-17</div><div class="title">YouTube CC字幕輸出工具</div></div></a></div><div><a href="/2023/08/10/angularLearning/" title="Angular 學習紀錄"><img class="cover" src="/img/banner.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-08-10</div><div class="title">Angular 學習紀錄</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/logo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">YuYutw123</div><div class="author-info__description">Record my life</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">6</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">5</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">2</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://www.facebook.com/yuyutw.yuyutw.52"><i class="fab fa-facebook"></i><span>歡迎加友</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://twitter.com/@yutw_yu" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a><a class="social-icon" href="https://github.com/yuyutw123" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:yuyutw123@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目錄</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%81%8B%E7%94%A8%E7%88%AC%E8%9F%B2%E5%AF%A6%E7%8F%BE%E8%83%8C%E6%99%AF%E7%B6%B2%E9%A0%81%E8%87%AA%E5%8B%95%E9%BB%9E%E6%93%8A"><span class="toc-number">1.</span> <span class="toc-text">運用爬蟲實現背景網頁自動點擊</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8B%95%E6%A9%9F"><span class="toc-number">1.1.</span> <span class="toc-text">動機</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%80%E5%88%9D%E6%83%B3%E6%B3%95"><span class="toc-number">1.2.</span> <span class="toc-text">最初想法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%99%BC%E7%8F%BE%E4%B8%8D%E4%BE%BF"><span class="toc-number">1.3.</span> <span class="toc-text">發現不便</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%92%B0%E5%AF%AB%E6%96%B0%E7%A8%8B%E5%BC%8F"><span class="toc-number">1.4.</span> <span class="toc-text">撰寫新程式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A8%8B%E5%BC%8F%E7%A2%BC"><span class="toc-number">1.5.</span> <span class="toc-text">程式碼</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B8%AC%E8%A9%A6"><span class="toc-number">1.6.</span> <span class="toc-text">測試</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%88%90%E6%95%88"><span class="toc-number">1.7.</span> <span class="toc-text">成效</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BF%83%E5%BE%97"><span class="toc-number">1.8.</span> <span class="toc-text">心得</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%8C%E6%95%B4%E7%A8%8B%E5%BC%8F%E7%A2%BC"><span class="toc-number">1.9.</span> <span class="toc-text">完整程式碼</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/08/10/angularLearning/" title="Angular 學習紀錄">Angular 學習紀錄</a><time datetime="2023-08-10T07:46:49.000Z" title="Created 2023-08-10 15:46:49">2023-08-10</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/08/08/twitterLogo/" title="Browser Extension製作心得">Browser Extension製作心得</a><time datetime="2023-08-08T05:13:51.000Z" title="Created 2023-08-08 13:13:51">2023-08-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/08/07/Computer/" title="電腦組裝心得">電腦組裝心得</a><time datetime="2023-08-07T08:26:48.000Z" title="Created 2023-08-07 16:26:48">2023-08-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2022/08/21/Keyboard/" title="鍵盤微改造紀錄">鍵盤微改造紀錄</a><time datetime="2022-08-21T10:18:59.000Z" title="Created 2022-08-21 18:18:59">2022-08-21</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2022/04/17/YTCC/" title="YouTube CC字幕輸出工具">YouTube CC字幕輸出工具</a><time datetime="2022-04-17T05:58:38.000Z" title="Created 2022-04-17 13:58:38">2022-04-17</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2023 By YuYutw123</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="閱讀模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="淺色和深色模式轉換"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="單欄和雙欄切換"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="設定"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目錄"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到頂部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

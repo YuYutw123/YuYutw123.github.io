@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>YuYutw123&#39;s Blog</title>
+  
+  
+  <link href="https://yuyutw123.github.io/atom.xml" rel="self"/>
+  
+  <link href="https://yuyutw123.github.io/"/>
+  <updated>2023-08-10T08:32:43.397Z</updated>
+  <id>https://yuyutw123.github.io/</id>
+  
+  <author>
+    <name>YuYutw123</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Angular 學習紀錄</title>
+    <link href="https://yuyutw123.github.io/2023/08/10/angularLearning/"/>
+    <id>https://yuyutw123.github.io/2023/08/10/angularLearning/</id>
+    <published>2023-08-10T07:46:49.000Z</published>
+    <updated>2023-08-10T08:32:43.397Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Angular-學習紀錄"><a href="#Angular-學習紀錄" class="headerlink" title="Angular 學習紀錄"></a>Angular 學習紀錄</h1><h2 id="ngFor"><a href="#ngFor" class="headerlink" title="ngFor"></a>ngFor</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> *<span class="attr">ngFor</span>=<span class="string">&quot;let i of list&quot;</span>&gt;</span>&#123;&#123; i &#125;&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure><figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">list</span>: <span class="title class_">Array</span>&lt;<span class="built_in">string</span>&gt; = [<span class="string">&quot;Apple&quot;</span>, <span class="string">&quot;Banana&quot;</span>, <span class="string">&quot;Orange&quot;</span>, <span class="string">&quot;Papaya&quot;</span>];</span><br></pre></td></tr></table></figure><h2 id="ngIf"><a href="#ngIf" class="headerlink" title="ngIf"></a>ngIf</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> *<span class="attr">ngIf</span>=<span class="string">&quot;flag; else contentDisplay&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span> flag true <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">ng-template</span> #<span class="attr">contentDisplay</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span> </span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span> flag false <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ng-template</span>&gt;</span></span><br></pre></td></tr></table></figure><figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">flag</span>: <span class="built_in">boolean</span> = <span class="literal">true</span>;</span><br></pre></td></tr></table></figure><h2 id="router"><a href="#router" class="headerlink" title="router"></a>router</h2><h3 id="app-routing-module-ts"><a href="#app-routing-module-ts" class="headerlink" title="app-routing.module.ts"></a>app-routing.module.ts</h3><figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="attr">routes</span>: <span class="title class_">Routes</span> = [</span><br><span class="line">  &#123; <span class="attr">path</span>: <span class="string">&#x27;&#x27;</span>, <span class="attr">redirectTo</span>: <span class="string">&#x27;home&#x27;</span>, <span class="attr">pathMatch</span>: <span class="string">&#x27;full&#x27;</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">path</span>: <span class="string">&#x27;home&#x27;</span>, <span class="attr">component</span>: <span class="title class_">HomeComponent</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">path</span>: <span class="string">&#x27;subPage&#x27;</span>, <span class="attr">component</span>: <span class="title class_">SubPageComponent</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">path</span>: <span class="string">&#x27;**&#x27;</span>, <span class="attr">component</span>: <span class="title class_">HomeComponent</span>&#125;  </span><br><span class="line">];</span><br></pre></td></tr></table></figure><h3 id="navigate-to-specific-page"><a href="#navigate-to-specific-page" class="headerlink" title="navigate to specific page"></a>navigate to specific page</h3><figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">this</span>.<span class="property">router</span>.<span class="title function_">navigate</span>([<span class="string">&#x27;subPage&#x27;</span>]);</span><br></pre></td></tr></table></figure><h2 id=""><a href="#" class="headerlink" title=""></a></h2>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;Angular-學習紀錄&quot;&gt;&lt;a href=&quot;#Angular-學習紀錄&quot; class=&quot;headerlink&quot; title=&quot;Angular 學習紀錄&quot;&gt;&lt;/a&gt;Angular 學習紀錄&lt;/h1&gt;&lt;h2 id=&quot;ngFor&quot;&gt;&lt;a href=&quot;#ngFor&quot; c</summary>
+      
+    
+    
+    
+    <category term="Side Project" scheme="https://yuyutw123.github.io/categories/Side-Project/"/>
+    
+    
+    <category term="Python" scheme="https://yuyutw123.github.io/tags/Python/"/>
+    
+    <category term="Tkinter" scheme="https://yuyutw123.github.io/tags/Tkinter/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Browser Extension製作心得</title>
+    <link href="https://yuyutw123.github.io/2023/08/08/twitterLogo/"/>
+    <id>https://yuyutw123.github.io/2023/08/08/twitterLogo/</id>
+    <published>2023-08-08T05:13:51.000Z</published>
+    <updated>2023-08-08T16:40:57.521Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="利用瀏覽器插件更改網頁樣貌"><a href="#利用瀏覽器插件更改網頁樣貌" class="headerlink" title="利用瀏覽器插件更改網頁樣貌"></a>利用瀏覽器插件更改網頁樣貌</h1><h2 id="動機"><a href="#動機" class="headerlink" title="動機"></a>動機</h2><p>相信各位都有耳聞Elon Musk將「Twitter」改名「X」的新聞，身為推特的使用者，我真的覺得那個X的Logo有夠醜，所以我決定自己寫一個瀏覽器插件把Logo改回來。</p><h2 id="想法"><a href="#想法" class="headerlink" title="想法"></a>想法</h2><p>肉眼可見的Logo有3個地方會出現，第一個是分頁上面的Logo，其次是網頁左上角的Logo，最後一個是最不明顯，只會出現一下子的載入畫面正中間的Logo，那我就把這3個地方的Logo改回原本的小鳥就好了。<br><img src="/img/twitterLogo/where.png"></p><h2 id="撰寫程式"><a href="#撰寫程式" class="headerlink" title="撰寫程式"></a>撰寫程式</h2><p>之前就有寫過瀏覽器插件把網站改成暗黑模式以保護眼睛，所以這次用同樣的思路，把網站裡面的元素改掉就好了，左上角和載入畫面的Logo用CSS直接改svg路徑，分頁上面的用JS改，由於推特不允許跨網站存取，所以我將推特Logo上傳到推特上直接讀取。</p><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-attr">[role=heading]</span>&gt;<span class="selector-tag">a</span>&gt;<span class="selector-tag">div</span>&gt;svg&gt;g&gt;path&#123;</span><br><span class="line">    <span class="attribute">color</span>: <span class="number">#1D9BF0</span>;</span><br><span class="line">    d: <span class="built_in">path</span>(<span class="string">&quot;M23.643 4.937c-.835.37-1.732.62-2.675.733.962-.576 1.7-1.49 2.048-2.578-.9.534-1.897.922-2.958 1.13-.85-.904-2.06-1.47-3.4-1.47-2.572 0-4.658 2.086-4.658 4.66 0 .364.042.718.12 1.06-3.873-.195-7.304-2.05-9.602-4.868-.4.69-.63 1.49-.63 2.342 0 1.616.823 3.043 2.072 3.878-.764-.025-1.482-.234-2.11-.583v.06c0 2.257 1.605 4.14 3.737 4.568-.392.106-.803.162-1.227.162-.3 0-.593-.028-.877-.082.593 1.85 2.313 3.198 4.352 3.234-1.595 1.25-3.604 1.995-5.786 1.995-.376 0-.747-.022-1.112-.065 2.062 1.323 4.51 2.093 7.14 2.093 8.57 0 13.255-7.098 13.255-13.254 0-.2-.005-.402-.014-.602.91-.658 1.7-1.477 2.323-2.41z&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-id">#react-root</span>&gt;<span class="selector-tag">div</span>&gt;<span class="selector-tag">div</span>&gt;<span class="selector-tag">div</span>&gt;svg&gt;g&gt;path&#123;</span><br><span class="line">    <span class="attribute">color</span>: <span class="number">#1D9BF0</span>;</span><br><span class="line">    d: <span class="built_in">path</span>(<span class="string">&quot;M23.643 4.937c-.835.37-1.732.62-2.675.733.962-.576 1.7-1.49 2.048-2.578-.9.534-1.897.922-2.958 1.13-.85-.904-2.06-1.47-3.4-1.47-2.572 0-4.658 2.086-4.658 4.66 0 .364.042.718.12 1.06-3.873-.195-7.304-2.05-9.602-4.868-.4.69-.63 1.49-.63 2.342 0 1.616.823 3.043 2.072 3.878-.764-.025-1.482-.234-2.11-.583v.06c0 2.257 1.605 4.14 3.737 4.568-.392.106-.803.162-1.227.162-.3 0-.593-.028-.877-.082.593 1.85 2.313 3.198 4.352 3.234-1.595 1.25-3.604 1.995-5.786 1.995-.376 0-.747-.022-1.112-.065 2.062 1.323 4.51 2.093 7.14 2.093 8.57 0 13.255-7.098 13.255-13.254 0-.2-.005-.402-.014-.602.91-.658 1.7-1.477 2.323-2.41z&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;link[rel*=&quot;icon&quot;]&#x27;</span>).<span class="property">href</span> = <span class="string">&quot;https://pbs.twimg.com/media/F12BhZ7aEAIc1bQ?format=png&amp;name=small&quot;</span>;</span><br><span class="line"><span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;link[rel*=&quot;shortcut icon&quot;]&#x27;</span>).<span class="property">href</span> = <span class="string">&quot;https://pbs.twimg.com/media/F12BhZ7aEAIc1bQ?format=png&amp;name=small&quot;</span>;</span><br><span class="line"><span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;link[rel*=&quot;apple-touch-icon&quot;]&#x27;</span>).<span class="property">href</span> = <span class="string">&quot;https://pbs.twimg.com/media/F12BhZ7aEAIc1bQ?format=png&amp;name=small&quot;</span>;</span><br></pre></td></tr></table></figure><h2 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h2><p>插件寫好後，我將自己的插件上傳到Github，並在匿名論壇發文分享，獲得了不錯的反響，然而隔天Twitter又更新了，他將分頁上的網站名稱也改成「X」了，網友留言問說能不能將分頁名稱也改回Twitter，所以我又打開Vscode更新了一下插件。</p><p>因為網頁載入需要時間，不會馬上就載入title，所以我先等網頁載入約2秒後才更改網頁名稱，接著為避免切換不同頁面時title沒改到，所以我也偵測了body元素點擊時偵測title是否為「X」，是的話就改成Twitter。</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">sleep</span>(<span class="params">time</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> (<span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="keyword">function</span> (<span class="params">resolve, reject</span>) &#123;</span><br><span class="line">        <span class="built_in">setTimeout</span>(<span class="keyword">function</span> (<span class="params"></span>) &#123; <span class="title function_">resolve</span>(); &#125;, time);</span><br><span class="line">    &#125;));</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">sleep</span>(<span class="number">1000</span>).<span class="title function_">then</span>(<span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="title function_">loading</span>();</span><br><span class="line">&#125;);</span><br><span class="line"><span class="variable language_">document</span>.<span class="property">body</span>.<span class="property">onclick</span> = <span class="keyword">function</span> (<span class="params">e</span>) &#123;</span><br><span class="line">    <span class="title function_">loading</span>();</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">loading</span>(<span class="params"></span>) &#123; </span><br><span class="line">    <span class="title function_">sleep</span>(<span class="number">1000</span>).<span class="title function_">then</span>(<span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">        <span class="keyword">let</span> titleDOM = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;title&#x27;</span>).<span class="property">textContent</span>;</span><br><span class="line">        <span class="keyword">if</span> (titleDOM[titleDOM.<span class="property">length</span> - <span class="number">1</span>] != <span class="string">&#x27;X&#x27;</span>)</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        <span class="keyword">let</span> prefix = <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; titleDOM.<span class="property">length</span>-<span class="number">1</span>; i++) &#123;</span><br><span class="line">            prefix += titleDOM[i];</span><br><span class="line">        &#125;</span><br><span class="line">        prefix += <span class="string">&quot;Twitter&quot;</span>;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(prefix);</span><br><span class="line">        <span class="variable language_">document</span>.<span class="property">title</span> = prefix;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="成效"><a href="#成效" class="headerlink" title="成效"></a>成效</h2><p>在完成插件後，我將自己的程式分享到Plurk上面，有Firefox的用戶問說能不能應用到Firefox上面，所以我去研究了一下該如何安裝到Firefox上面，發現意外地安裝第三方插件有點麻煩，所以我將自己的插件上架到FireFox的官方插件商店了，也順便上傳到Chrome Web Store(要5美金註冊費，盤)。</p><p><a href="https://www.plurk.com/p/pc0577">Plurk文章連結</a></p><p>截至目前為止的使用者統計：<br>Chrome：848位<br><img src="/img/twitterLogo/Chrome.png"><br>Firefox：86位<br><img src="/img/twitterLogo/Firefox.png"></p><h2 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h2><p>Github Repo: <a href="https://github.com/YuYutw123/twitterLogo/">https://github.com/YuYutw123/twitterLogo/</a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;利用瀏覽器插件更改網頁樣貌&quot;&gt;&lt;a href=&quot;#利用瀏覽器插件更改網頁樣貌&quot; class=&quot;headerlink&quot; title=&quot;利用瀏覽器插件更改網頁樣貌&quot;&gt;&lt;/a&gt;利用瀏覽器插件更改網頁樣貌&lt;/h1&gt;&lt;h2 id=&quot;動機&quot;&gt;&lt;a href=&quot;#動機&quot; cla</summary>
+      
+    
+    
+    
+    <category term="Side Project" scheme="https://yuyutw123.github.io/categories/Side-Project/"/>
+    
+    
+    <category term="JavaScript" scheme="https://yuyutw123.github.io/tags/JavaScript/"/>
+    
+    <category term="CSS" scheme="https://yuyutw123.github.io/tags/CSS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>電腦組裝心得</title>
+    <link href="https://yuyutw123.github.io/2023/08/07/Computer/"/>
+    <id>https://yuyutw123.github.io/2023/08/07/Computer/</id>
+    <published>2023-08-07T08:26:48.000Z</published>
+    <updated>2023-08-08T16:33:08.181Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>自己組一台全新的桌機，從配單到組裝全部自己來，是我接觸電腦硬體之後最想做的事，但礙於經費問題，這個小小的目標一直放在我的心理無法實踐。</p><p>今年暑假剛好想要去的工讀錄取了，算了一下薪水夠組一台自己期望程度的桌機，所以就開始配單了。</p><h1 id="配備"><a href="#配備" class="headerlink" title="配備"></a>配備</h1><p>CPU: AMD R9 7900X<br>GPU: 技嘉 GeForce RTX 4070 WINDFORCE OC 12GB<br>MB: 微星 MPG B650 EDGE WIFI<br>RAM: 威剛 DDR5 5600 XPG Lancer 32GB(雙通道16GBx2)<br>SSD: PNY CS3040 2TB<br>Cooler: Montech Metal DT24 Premium<br>Case: Montech Air 1000 PREMIUM<br>PSU: CENTURY 850W</p><h1 id="配單思路"><a href="#配單思路" class="headerlink" title="配單思路"></a>配單思路</h1><p>首先是CPU，我選的是AMD的R9 7900X，對，現在已經沒有人在AMD YES了，Intel 12﹑13代的性能躍進，但我還是選了AMD，考慮到未來可能會想換新代的U來玩，所以選AMD平台。然後原本是打算在Amazon上面買，比台灣通路便宜，加上免運，又有國際保，沒理由不在Amazon買，一切看似如此完美，這個念頭就在原價屋特價到比Amazon便宜之後打消了。<br>其實原本也有在考慮同價位的X3D系列U，但其實我也沒那麼多3A大作可以玩，所以還是選多工好一點點的7900X。<br>（喔然後其實這些是冰棒和我說的，其實我原本會想買Intel，這次組單蠻多都是和冰棒討論之後做的選擇，他好電🛐）</p><p>再來是主機板，微星的MPG B650 EDGE WIFI，冰棒推薦的，因為他說這個板子有好多USB槽真香，供電夠也有WIFI，然後我比較其他同價位和相同規格的主機板，最後也是選了這個。</p><p>接著是記憶體，威剛 XPG Lancer DDR5 5600 32GB 雙通道，好看然後相對便宜，對，就這樣。<br>塔扇：Montech Metal DT24 Premium<br>也是同樣理由。</p><p>機殼和電源，我是選Montech Air 1000 PREMIUM和CENTURY 850W，因為他們綁在一起買比較便宜，然後我有查了君主的電源評價，看起來還行，有查到事故但看起來是個人問題，然後保固是直接換新品，售後好像很不錯，所以就選了這個。</p><p>硬碟延用原本就有的PNY CS3040 2TB。</p><p>上面的零件除了硬碟之外都是在原價屋買的，原本想說給他們組就好了，但是要他們組要先付訂金，覺得很麻煩就想說自己組好了。</p><p>原價屋買的零件到齊後，我就把電腦組起來了，咦？是不是哪裡怪怪的，說了這麼多，還沒提到一個很重要的零件呢？</p><p>「顯示卡」</p><p>沒錯，這個單子裡面沒出現顯卡，所以我組起來的時候，是延用舊的GTX 960 2GB，這段時間一直在等40系列顯卡價錢降價，奈何真的等不到，這個價錢維持好久了，俗話說早買早享受，某一天在滑PChome的時候發現有優惠卷折1500…好了啦，買了。</p><p>顯卡我買的是丐板的技嘉RTX 4070 WINDFORCE OC 12G，原本在思考要3070還是4060，但是又看到4060的刀法很狠，所以預算捏了一下還是上了4070，雖然是三風扇，但是這張的體積比有些雙風扇的4070還小，所以就選了這張，看別人評測解熱能力也夠，所以選丐板就很夠了。</p><h1 id="組裝心得"><a href="#組裝心得" class="headerlink" title="組裝心得"></a>組裝心得</h1><p>接者是組裝。</p><p>我有過的組裝經驗只有我的舊桌機，那個也已經是2代intel平台了，所以組這麼新的平台還是第一次，但組電腦邏輯都大同小異，所以這次組裝也蠻順利的，除了那個CPU風扇我插超久。組裝完之後一次點亮，好耶。</p><p>灌完系統之後我就開始用了，好用，好玩。</p>]]></content>
+    
+    
+    <summary type="html">好欸新電腦。</summary>
+    
+    
+    
+    <category term="Diary" scheme="https://yuyutw123.github.io/categories/Diary/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>鍵盤微改造紀錄</title>
+    <link href="https://yuyutw123.github.io/2022/08/21/Keyboard/"/>
+    <id>https://yuyutw123.github.io/2022/08/21/Keyboard/</id>
+    <published>2022-08-21T10:18:59.000Z</published>
+    <updated>2023-08-11T08:19:48.874Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="鍵盤"><a href="#鍵盤" class="headerlink" title="鍵盤"></a>鍵盤</h1><p>Ducky one 2 sf</p><h1 id="使用材料"><a href="#使用材料" class="headerlink" title="使用材料"></a>使用材料</h1><p>醫療用紙膠帶、包材用的泡棉</p><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>最近很喜歡看自組鍵盤的影片，但我最近很窮沒錢再買鍵盤，所以想說利用手邊有的材料來小小升級自己的鍵盤。找了找自己手邊有的材料，只有找到醫療用紙膠帶和我媽買東西拿到的泡棉，沒有潤滑劑難過。</p><h1 id="過程"><a href="#過程" class="headerlink" title="過程"></a>過程</h1><p>拆鍵盤第一步：拔鍵帽，廢話。<br>拔完鍵帽後，我開始拆鍵盤上蓋，我不知道其他鍵盤是不是也是這樣，但這把鍵盤的上蓋真的有夠難拆的，自己試了20幾分鐘後還是拆不開了，後來找教學一下就拆開了:P (拆上蓋的教學：<a href="https://youtu.be/5gMt81wF0C8">https://youtu.be/5gMt81wF0C8</a>)<br>拆開上蓋後，把PCB上面的螺絲卸下，就可以取出PCB板了，我只打算做foam + tape mod，所以把PCB貼上紙膠帶，下面墊泡棉後我就把螺絲鎖回去了，接著把上蓋蓋回去，鍵帽裝回去。<br>搭啷，小改造完成。</p><h1 id="心得"><a href="#心得" class="headerlink" title="心得"></a>心得</h1><p>原本想說我的木耳應該聽不太出差別，而且我也沒潤軸，結果差別還是蠻明顯的。<br>首先手感就不太一樣了，可以很明顯地感受到下面有東西，而不是直接到底部的塑膠蓋。然後泡綿也很好地吸收了原本鍵盤的回音，聽起來真的有一點點不一樣。</p><p>總結，小改造鍵盤蠻有趣的，也真的有體驗上的不同，也許之後也會嘗試看看自組鍵盤，但前提是我要有錢D:</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;鍵盤&quot;&gt;&lt;a href=&quot;#鍵盤&quot; class=&quot;headerlink&quot; title=&quot;鍵盤&quot;&gt;&lt;/a&gt;鍵盤&lt;/h1&gt;&lt;p&gt;Ducky one 2 sf&lt;/p&gt;
+&lt;h1 id=&quot;使用材料&quot;&gt;&lt;a href=&quot;#使用材料&quot; class=&quot;headerlink&quot; ti</summary>
+      
+    
+    
+    
+    <category term="Diary" scheme="https://yuyutw123.github.io/categories/Diary/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>YouTube CC字幕輸出工具</title>
+    <link href="https://yuyutw123.github.io/2022/04/17/YTCC/"/>
+    <id>https://yuyutw123.github.io/2022/04/17/YTCC/</id>
+    <published>2022-04-17T05:58:38.000Z</published>
+    <updated>2023-08-08T16:09:20.607Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="YouTube-CC字幕輸出工具"><a href="#YouTube-CC字幕輸出工具" class="headerlink" title="YouTube CC字幕輸出工具"></a>YouTube CC字幕輸出工具</h1><h2 id="動機"><a href="#動機" class="headerlink" title="動機"></a>動機</h2><p>我自己本身有在經營翻譯影片的頻道，大多翻譯英文影片，多次翻譯下來，我發現YouTube上有許多原文為英文的影片會自動產生英文字幕，準確率頗高，如果能善加利用，便會提高翻譯的效率。</p><p>我的翻譯頻道↓<a href="https://www.youtube.com/c/%E7%83%A4%E8%82%89%E4%BB%94">頻道連結</a><br><img src="https://i.imgur.com/uYeMNsR.png"></p><h2 id="程式構思"><a href="#程式構思" class="headerlink" title="程式構思"></a>程式構思</h2><p>最一開始我想寫出一個程式，能透過api抓取youtube自動生成的字幕，標記時間戳後，輸出成txt文字檔。<br>很快地，大約花了兩個小時我就完成以上功能。</p><p><img src="https://i.imgur.com/tNu2UPA.png"></p><h2 id="改良程式"><a href="#改良程式" class="headerlink" title="改良程式"></a>改良程式</h2><p>看著程式成功執行，我卻覺得還不夠，簡陋的執行畫面、不精確的時間標記，這不是我想完成的程式。<br>我還有許多能做的，可以為他加上GUI、可以將他輸出能srt字幕檔，讓人便於操作，能直接透過字幕檔案翻譯。<br>決定好該做的東西後，我便開始排版規劃程式的外觀，我透過Photoshop設計了GUI的外觀。<br><img src="https://i.imgur.com/CHwFefC.png"></p><p>再來是主程式的編寫，我使用tkinter這個模組來建立圖形化介面，加上各個物件，並撰寫各個功能。<br>完成後，程式的最終樣貌如下。<br><img src="https://i.imgur.com/HEStwoJ.png"></p><h2 id="程式測試"><a href="#程式測試" class="headerlink" title="程式測試"></a>程式測試</h2><p>完成程式後，接著就是測試環節，我用了自己的電腦進行測試，程式能夠順利執行，接著請了幾位朋友測試，也都能正常執行。<br>測試影片連結: <a href="https://youtu.be/tC0tWLqr-LQ">https://youtu.be/tC0tWLqr-LQ</a></p><h2 id="心得"><a href="#心得" class="headerlink" title="心得"></a>心得</h2><p>其實在寫這個程式之前，我對python這個語言的語法不是很熟悉，所以找了入門教學來看，依靠過去學其他語言的經驗，我大概花了2個小時就熟悉了python，過去寫python程式都是照樣造句，看完教學後我才了解了每行程式碼背後的意義，並自行寫出自己的程式。</p><p>編寫程式時，困擾我最久的是轉換srt字幕檔案的功能，利用api抓下來的資料型態是一個list of dict，所得到的資料是每段話「開始的時間」和「持續的時間」且單位為秒，我需要自行計算每段話何時結束，我得讓結束時間小於等於下一段話的開始時間。<br>由於輸出字幕的方式是用for迴圈讓他一個dict一個dict跑，所以我無法取得下一個dict的資料，再查了許多資料後才終於解決這個問題。</p><p>這個程式算是我目前寫過最完整的程式，有圖形化介面、實質用途，真的對自己有幫助的程式。<br>這次的經驗也讓我知道註解的重要性，因為整個程式大約花了兩個星期才做完，每次重新開啟檔案，先前的思緒都會消失，需要再重新閱讀去理解自己之前寫的東西，這時註解就顯得十分重要，能讓自己更快回到狀態。</p><p>我很開心自己接觸了許多不同的事物，其實我對影像設計這塊也十分感興趣，這也是為何我自己設計了程式的GUI，我想要擁有自己獨立開發一款程式的能力，而這些都是要達成此目標不可缺少的能力，希望大學四年後，各個能力都可以更上一層樓。</p><h2 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h2><p>GitHub Repo: <a href="https://github.com/YuYuTW123/YTCC/">https://github.com/YuYuTW123/YTCC/</a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;YouTube-CC字幕輸出工具&quot;&gt;&lt;a href=&quot;#YouTube-CC字幕輸出工具&quot; class=&quot;headerlink&quot; title=&quot;YouTube CC字幕輸出工具&quot;&gt;&lt;/a&gt;YouTube CC字幕輸出工具&lt;/h1&gt;&lt;h2 id=&quot;動機&quot;&gt;&lt;a hr</summary>
+      
+    
+    
+    
+    <category term="Side Project" scheme="https://yuyutw123.github.io/categories/Side-Project/"/>
+    
+    
+    <category term="Python" scheme="https://yuyutw123.github.io/tags/Python/"/>
+    
+    <category term="Tkinter" scheme="https://yuyutw123.github.io/tags/Tkinter/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Popcat 自動點擊</title>
+    <link href="https://yuyutw123.github.io/2021/08/11/Popcat/"/>
+    <id>https://yuyutw123.github.io/2021/08/11/Popcat/</id>
+    <published>2021-08-11T12:26:35.000Z</published>
+    <updated>2023-08-08T16:09:33.887Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="運用爬蟲實現背景網頁自動點擊"><a href="#運用爬蟲實現背景網頁自動點擊" class="headerlink" title="運用爬蟲實現背景網頁自動點擊"></a>運用爬蟲實現背景網頁自動點擊</h1><h2 id="動機"><a href="#動機" class="headerlink" title="動機"></a>動機</h2><p>2021年8月7日，一款網頁遊戲突然受到台灣人的關注。</p><p>遊戲以網路迷因「Popcat」為題材，進入網站後只要觸發鍵盤或滑鼠任何一個按鍵都能使點擊次數+1，網頁會用ip偵測玩家所在的地區，將點擊次數以國家為單位統計。</p><p>因其簡單的遊戲特性和競爭性質，造成此遊戲在台灣掀起一陣旋風，各路大神都在提供快速點擊的方法，而我也投入其中。<br><img src="https://i.imgur.com/L3fpK7k.png"></p><h2 id="最初想法"><a href="#最初想法" class="headerlink" title="最初想法"></a>最初想法</h2><p>在當時接觸到這款遊戲時，就在想有什麼方法能夠讓他自動點擊，不用耗費人力，可以放著讓它自己跑。為此我下載了一款自動點擊器，他能模擬真實滑鼠點擊，可以開啟後掛在網頁讓他自己點。</p><h2 id="發現不便"><a href="#發現不便" class="headerlink" title="發現不便"></a>發現不便</h2><p>使用一段時間後，我發現了一個問題，那個程式的運作原理是模擬真實滑鼠點擊，所以我電腦畫面要留在那個頁面，不能同時做其他事，這個不便使我萌生了自己寫一個程式讓他能在背景跑的念頭。</p><h2 id="撰寫新程式"><a href="#撰寫新程式" class="headerlink" title="撰寫新程式"></a>撰寫新程式</h2><p>要寫程式，首先要考慮的是用什麼語言。</p><p>既然是要跑網頁，我首先想到的是python的爬蟲，雖然對python不甚熟悉，但高一社團課時由稍微接觸過，了解可以用xpath抓到想要的元素，再用指令去點擊，點擊頻率則用sleep控制。</p><h2 id="程式碼"><a href="#程式碼" class="headerlink" title="程式碼"></a>程式碼</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"><span class="keyword">from</span> time <span class="keyword">import</span> sleep</span><br><span class="line"></span><br><span class="line">chromeDriverPath = <span class="string">r&quot;chromedriver.exe&quot;</span></span><br><span class="line">site = webdriver.ChromeOptions()</span><br><span class="line"><span class="comment"># site</span></span><br><span class="line"></span><br><span class="line">browser = webdriver.Chrome(executable_path=chromeDriverPath) </span><br><span class="line"></span><br><span class="line">url = <span class="string">&#x27;https://popcat.click&#x27;</span> <span class="comment">#給網址</span></span><br><span class="line">browser.get(url) <span class="comment">#抓網址</span></span><br><span class="line">browser.maximize_window() <span class="comment">#視窗最大化</span></span><br><span class="line">sleep(<span class="number">2</span>)<span class="comment">#怕有人網頁還沒跑好，所以睡個兩秒</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#用無限迴圈執行點擊作業</span></span><br><span class="line"><span class="keyword">while</span> <span class="number">1</span>:</span><br><span class="line">    browser.find_element_by_xpath(<span class="string">&#x27;//*[@id=&quot;app&quot;]/img&#x27;</span>).click() <span class="comment">#我是抓標題POPCAT的xpath來點</span></span><br><span class="line">    browser.find_element_by_xpath(<span class="string">&#x27;//*[@id=&quot;app&quot;]/img&#x27;</span>).click()</span><br><span class="line">    sleep(<span class="number">0.03</span>) <span class="comment">#睡覺</span></span><br></pre></td></tr></table></figure><blockquote><p>By YuYu December 7, 2021 1:52 PM</p></blockquote><h2 id="測試"><a href="#測試" class="headerlink" title="測試"></a>測試</h2><p>完成程式後，接著就是測試環節，我用了自己的電腦進行測試，程式能夠順利執行。<br>因此，我將程式的demo影片上傳到Youtube。<br>並在說明欄附上程式下載連結。</p><iframe width="560" height="315" src="https://www.youtube.com/embed/lHarZ_vUgmI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><h2 id="成效"><a href="#成效" class="headerlink" title="成效"></a>成效</h2><p>這部影片獲得了5000多觀看, 46個讚和38則留言<br><img src="https://i.imgur.com/LoawKl8.png"></p><p>新版和舊版的程式下載次數共1萬多次<br><img src="https://i.imgur.com/G8Zyoj4.png"></p><p>在Github上也獲得了一顆星星(很少但我很開心 :D)<br><img src="https://i.imgur.com/rYPMBZ5.png"></p><h2 id="心得"><a href="#心得" class="headerlink" title="心得"></a>心得</h2><p>其實我也有將程式上傳到論壇，但時間久那篇文就被刪掉了，在哪裡有人和我建議能用代理ip來跑，其實那時的我是第一次聽到代理ip，研究了好久，但最終不知是ip的問題，還是我程式的問題，總是無法順利請求伺服器。<br>最終，代理ip的程式只好作罷，但自己也還是學到了不少。</p><h2 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h2><p>Github Repo: <a href="https://github.com/YuYutw123/popcatclick">https://github.com/YuYutw123/popcatclick</a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;運用爬蟲實現背景網頁自動點擊&quot;&gt;&lt;a href=&quot;#運用爬蟲實現背景網頁自動點擊&quot; class=&quot;headerlink&quot; title=&quot;運用爬蟲實現背景網頁自動點擊&quot;&gt;&lt;/a&gt;運用爬蟲實現背景網頁自動點擊&lt;/h1&gt;&lt;h2 id=&quot;動機&quot;&gt;&lt;a href=&quot;#動機&quot;</summary>
+      
+    
+    
+    
+    <category term="Side Project" scheme="https://yuyutw123.github.io/categories/Side-Project/"/>
+    
+    
+    <category term="Python" scheme="https://yuyutw123.github.io/tags/Python/"/>
+    
+    <category term="Selenium" scheme="https://yuyutw123.github.io/tags/Selenium/"/>
+    
+  </entry>
+  
+</feed>
