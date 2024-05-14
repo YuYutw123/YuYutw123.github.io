@@ -131,6 +131,13 @@
   </url>
   
   <url>
+    <loc>https://yuyutw123.github.io/tags/DesignPatterns/</loc>
+    <lastmod>2024-05-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://yuyutw123.github.io/tags/JavaScript/</loc>
     <lastmod>2024-05-14</lastmod>
     <changefreq>weekly</changefreq>
@@ -144,24 +151,17 @@
     <priority>0.2</priority>
   </url>
   
-  <url>
-    <loc>https://yuyutw123.github.io/tags/DesignPatterns/</loc>
-    <lastmod>2024-05-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
 
   
   <url>
-    <loc>https://yuyutw123.github.io/categories/Side-Project/</loc>
+    <loc>https://yuyutw123.github.io/categories/Diary/</loc>
     <lastmod>2024-05-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://yuyutw123.github.io/categories/Diary/</loc>
+    <loc>https://yuyutw123.github.io/categories/Side-Project/</loc>
     <lastmod>2024-05-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
