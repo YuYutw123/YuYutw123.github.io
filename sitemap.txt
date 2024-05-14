@@ -1,3 +1,4 @@
+https://yuyutw123.github.io/2024/05/14/design-pattern/
 https://yuyutw123.github.io/about/index.html
 https://yuyutw123.github.io/2022/08/21/Keyboard/
 https://yuyutw123.github.io/2023/08/10/angularLearning/
@@ -14,5 +15,6 @@ https://yuyutw123.github.io/tags/Selenium/
 https://yuyutw123.github.io/tags/Tkinter/
 https://yuyutw123.github.io/tags/JavaScript/
 https://yuyutw123.github.io/tags/CSS/
+https://yuyutw123.github.io/tags/DesignPatterns/
 https://yuyutw123.github.io/categories/Side-Project/
 https://yuyutw123.github.io/categories/Diary/
