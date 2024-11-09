@@ -457,6 +457,7 @@ int main() {
 ## Proxy Method
 * 就，代理，可以控制客戶請求，並處理過濾，減少對原系統負荷
 
+# Behavioral Design Patterns
 ## Chain of Responsibility Method 
 * 對請求處理，一個處理者沒處理完就給下一個，層層遞進，直到請求處理完成
 
