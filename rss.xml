@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>YuYutw123&apos;s blog</title><description>Blog</description><link>https://yuyutw123.github.com/</link><language>zh_TW</language><item><title>Arch Linux + Hyprland 安裝</title><link>https://yuyutw123.github.com/posts/archlinux_hyprland/installation/</link><guid isPermaLink="true">https://yuyutw123.github.com/posts/archlinux_hyprland/installation/</guid><description>一直重裝一直爽。</description><pubDate>Thu, 07 Nov 2024 00:00:00 GMT</pubDate><content:encoded>&lt;h1&gt;Arch Linux + Hyprland 安裝&lt;/h1&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>YuYutw123&apos;s blog</title><description>Blog</description><link>https://yuyutw123.github.io/</link><language>zh_TW</language><item><title>Arch Linux + Hyprland 安裝</title><link>https://yuyutw123.github.io/posts/archlinux_hyprland/installation/</link><guid isPermaLink="true">https://yuyutw123.github.io/posts/archlinux_hyprland/installation/</guid><description>一直重裝一直爽。</description><pubDate>Thu, 07 Nov 2024 00:00:00 GMT</pubDate><content:encoded>&lt;h1&gt;Arch Linux + Hyprland 安裝&lt;/h1&gt;
 &lt;p&gt;:::info
 正確標題：Arch Linux + Hyprland with ML4W Dotfiles 安裝過程
 :::&lt;/p&gt;
@@ -300,7 +300,7 @@ https://wiki.archlinux.org/title/Mkinitcpio#Possibly_missing_firmware_for_module
 &lt;li&gt;&lt;a href=&quot;https://hackmd.io/@PIFOPlfSS3W_CehLxS3hBQ/r1xrYth9V&quot;&gt;Arch linux 安裝 (By Eric Lin)&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://youtu.be/6B4Kf30CWLg?si=0OZR_RfVwf5FbHJG&quot;&gt;ML4W Dotfiles 2.9.6 as AUR. Easy installation of HYPRLAND for Arch Linux, Garuda, Manjaro and more (By My Linux For Work)&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-</content:encoded></item><item><title>Design Patterns 筆記</title><link>https://yuyutw123.github.com/posts/designpattern/</link><guid isPermaLink="true">https://yuyutw123.github.com/posts/designpattern/</guid><description>Design Patterns 的學習筆記。</description><pubDate>Tue, 14 May 2024 00:00:00 GMT</pubDate><content:encoded>&lt;h1&gt;Creational Patterns&lt;/h1&gt;
+</content:encoded></item><item><title>Design Patterns 筆記</title><link>https://yuyutw123.github.io/posts/designpattern/</link><guid isPermaLink="true">https://yuyutw123.github.io/posts/designpattern/</guid><description>Design Patterns 的學習筆記。</description><pubDate>Tue, 14 May 2024 00:00:00 GMT</pubDate><content:encoded>&lt;h1&gt;Creational Patterns&lt;/h1&gt;
 &lt;h2&gt;Factory Method&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;Creational Patterns&lt;/li&gt;
@@ -792,7 +792,7 @@ int main() {
 &lt;p&gt;將原始對象指向每種狀態的class，且將所以與狀態相關的工作委託給狀態class&lt;/p&gt;
 &lt;h2&gt;Strategy Method&lt;/h2&gt;
 &lt;p&gt;將算法裝到一個名為策略的獨立class，並在需要策略算法時，通過接口將工作委派給策略的class去選擇並回傳演算法&lt;/p&gt;
-</content:encoded></item><item><title>電腦組裝心得</title><link>https://yuyutw123.github.com/posts/computer/computer/</link><guid isPermaLink="true">https://yuyutw123.github.com/posts/computer/computer/</guid><description>好欸新電腦。</description><pubDate>Mon, 07 Aug 2023 00:00:00 GMT</pubDate><content:encoded>&lt;h1&gt;前言&lt;/h1&gt;
+</content:encoded></item><item><title>電腦組裝心得</title><link>https://yuyutw123.github.io/posts/computer/computer/</link><guid isPermaLink="true">https://yuyutw123.github.io/posts/computer/computer/</guid><description>好欸新電腦。</description><pubDate>Mon, 07 Aug 2023 00:00:00 GMT</pubDate><content:encoded>&lt;h1&gt;前言&lt;/h1&gt;
 &lt;p&gt;自己組一台全新的桌機，從配單到組裝全部自己來，是我接觸電腦硬體之後最想做的事，但礙於經費問題，這個小小的目標一直放在我的心理無法實踐。&lt;/p&gt;
 &lt;p&gt;今年暑假剛好想要去的工讀錄取了，算了一下薪水夠組一台自己期望程度的桌機，所以就開始配單了。&lt;/p&gt;
 &lt;h1&gt;配備&lt;/h1&gt;
