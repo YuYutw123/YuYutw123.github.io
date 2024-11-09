@@ -15,10 +15,10 @@ tags: ["Installation", "Arch Linux", "Hyprland", "Tutorial"]
 
 不知道為什麼我用archinstall script都會報錯，所以改成自己手動裝，裝了好幾次才成功把要的東東弄好，所以記錄一下方便下一次重裝
 
-第1次：用archinstall script安裝，無視報錯，結果切換user的頁面會卡死
-...
-第n次：沒裝iwd，查了很多資料還是連不到wifi
-第n+1次：不小心改到權限，2ㄏ2ㄏ
+第1次：用archinstall script安裝，無視報錯，結果切換user的頁面會卡死 <br>
+... <br>
+第n次：沒裝iwd，查了很多資料還是連不到wifi <br>
+第n+1次：不小心改到權限，2ㄏ2ㄏ <br>
 
 
 ## 下載iso & 製作開機碟
