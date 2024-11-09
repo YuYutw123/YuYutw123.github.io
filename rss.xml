@@ -1,0 +1,828 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>YuYutw123&apos;s blog</title><description>Blog</description><link>https://yuyutw123.github.com/</link><language>zh_TW</language><item><title>Arch Linux + Hyprland 安裝</title><link>https://yuyutw123.github.com/posts/archlinux_hyprland/installation/</link><guid isPermaLink="true">https://yuyutw123.github.com/posts/archlinux_hyprland/installation/</guid><description>一直重裝一直爽。</description><pubDate>Thu, 07 Nov 2024 00:00:00 GMT</pubDate><content:encoded>&lt;h1&gt;Arch Linux + Hyprland 安裝&lt;/h1&gt;
+&lt;p&gt;:::info
+正確標題：Arch Linux + Hyprland with ML4W Dotfiles 安裝過程
+:::&lt;/p&gt;
+&lt;p&gt;不知道為什麼我用archinstall script都會報錯，所以改成自己手動裝，裝了好幾次才成功把要的東東弄好，所以記錄一下方便下一次重裝&lt;/p&gt;
+&lt;p&gt;第1次：用archinstall script安裝，無視報錯，結果切換user的頁面會卡死
+...
+第n次：沒裝iwd，查了很多資料還是連不到wifi
+第n+1次：不小心改到權限，2ㄏ2ㄏ&lt;/p&gt;
+&lt;h2&gt;下載iso &amp;amp; 製作開機碟&lt;/h2&gt;
+&lt;p&gt;iso下載：
+https://archlinux.org/download/&lt;/p&gt;
+&lt;p&gt;利用Rufus製作開機碟：
+https://rufus.ie/zh_TW/&lt;/p&gt;
+&lt;h2&gt;安裝Arch Linux&lt;/h2&gt;
+&lt;h3&gt;設定網路&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;iwctl
+
+# 進入 [iwd] 之後
+device list
+
+station [device_name] scan
+station [device_name] connect [Network_name]
+exit # 連完退出[iwd]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3&gt;分割硬碟&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;lsblk #顯示目前硬碟的分割狀態
+
+cfdisk /dev/nvme0n1 #用圖形化介面分割硬碟
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;我的分區&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;/dev/nvme0n1p1&lt;/code&gt;：EFI system&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;/dev/nvme0n1p2&lt;/code&gt;：swap&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;/dev/nvme0n1p3&lt;/code&gt;：root&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;/dev/nvme0n1p4&lt;/code&gt;：home&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;官方推薦分區
+&lt;img src=&quot;https://hackmd.io/_uploads/BkeoamIWkl.png=200x&quot; alt=&quot;image&quot; /&gt;
+我會再多分一個&lt;code&gt;/home&lt;/code&gt;
+&lt;a href=&quot;https://wiki.archlinuxcn.org/zh-hant/%E5%88%86%E5%8C%BA#/home&quot;&gt;官方文件解釋&lt;/a&gt;&lt;/p&gt;
+&lt;h3&gt;格式化分區&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;# UFI system
+mkfs.fat /dev/[partition_name]
+mkfs.fat /dev/nvme0n1p1
+
+# swap
+mkswap /dev/[partition_name]
+mkswap /dev/nvme0n1p2
+
+# root和home
+mkfs.ext4 /dev/[partition_name]
+mkfs.ext4 /dev/nvme0n1p3
+mkfs.ext4 /dev/nvme0n1p4
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3&gt;掛載分區&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;# root
+mount /dev/nvme0n1p3 /mnt
+
+# EFI
+mkdir /mnt/efi
+mount /dev/nvme0n1p1 /mnt/efi
+
+# home
+mkdir /mnt/home
+mount /dev/nvme0n1p4 /mnt/home
+
+# swap
+swapon /dev/nvme0n1p2
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3&gt;安裝系統&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;vim /etc/pacman.conf
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;新增鏡像
+&lt;a href=&quot;https://archlinux.org/mirrorlist/?country=TW&amp;amp;protocol=http&amp;amp;protocol=https&amp;amp;ip_version=4&quot;&gt;隨便選一個Address&lt;/a&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;[core]
+Server = http://mirror.archlinux.tw/ArchLinux/$repo/os/$arch
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3&gt;安裝套件&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;pacstrap /mnt base base-devel linux linux-firmware
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;然後可以更新一下&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;pacman -Syu
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3&gt;配置系統&lt;/h3&gt;
+&lt;h4&gt;Fstab&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;genfstab -U /mnt &amp;gt;&amp;gt; /mnt/etc/fstab
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4&gt;chroot到新系統&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;arch-chroot /mnt
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4&gt;設定時區&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;ln -sf /usr/share/zoneinfo/Asia/Taipei  /etc/localtime
+hwclock --systohc
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4&gt;設定語言&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;echo &quot;en_US.UTF-8 UTF-8&quot; &amp;gt; /etc/locale.gen;
+echo &quot;zh_TW.UTF-8 UTF-8&quot; &amp;gt;&amp;gt; /etc/locale.gen;
+echo &quot;LANG=en_US.UTF-8&quot; &amp;gt; /etc/locale.conf;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/wenxuechaozhe/article/details/52564394&quot;&gt;&lt;code&gt;&amp;gt;&lt;/code&gt; 和 &lt;code&gt;&amp;gt;&amp;gt;&lt;/code&gt; 的差別&lt;/a&gt; (對，我不知道)&lt;/p&gt;
+&lt;p&gt;接著執行 locale-gen 以生成 locale 資訊：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;locale-gen  
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4&gt;設定電腦名稱&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;echo &quot;your-pc-name&quot; &amp;gt; /etc/hostname
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;安裝vim&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;pacman -Sy vim
+vim /etc/hosts
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;然後寫入&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;127.0.0.1        localhost.localdomain         localhost
+::1              localhost.localdomain         localhost
+127.0.1.1        myhostname.localdomain        myhostname
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4&gt;Initramfs&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;mkinitcpio -p linux
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4&gt;設定 Root 密碼&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;passwd
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4&gt;設定 Bootloader&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;pacman -Sy grub os-prober efibootmgr
+os-prober
+
+# for BIOS
+grub-install /dev/sda
+
+# for UEFI
+grub-install --target=x86_64-efi --efi-directory=/efi --bootloader-id=grub
+grub-mkconfig -o /boot/grub/grub.cfg
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4&gt;安裝網路工具&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;pacman -S net-tools dhclient dhcp
+        wpa_supplicant wireless_tools 
+        dhcpcd
+
+pacman -S iwd # 連無線網路好用
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4&gt;常用 package&lt;/h4&gt;
+&lt;p&gt;:::spoiler&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;vim # text editor 
+pkgfile # 檢查官方軟件倉庫中軟體包文件的工具
+bash-completion # 按tab會幫你打字的東東
+sudo # substitute user do 你懂的
+git # 讓你可以git別人的東東
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;:::&lt;/p&gt;
+&lt;h4&gt;pacman 筆記&lt;/h4&gt;
+&lt;p&gt;:::spoiler&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# 安裝
+pacman -S [package_name]
+pacman -S [package_name1] [package_name2] [package_name3]
+
+
+# 同步
+pacman -Sy
+# 更新
+pacman -Su
+# 同步 + 更新全部 package
+pacman -Syu
+
+# 移除沒安裝的 cached package
+pacman -Sc
+# 移除所有在cache資料夾的檔案
+pacman -Scc
+
+# 移除 package
+pacman -R [package_name]
+# 把 dependencies 一起移除
+pacman -Rs [package_name]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;:::danger
+如果只做 &lt;code&gt;pacman -Sy&lt;/code&gt;，可能會造成dependency issue
+:::&lt;/p&gt;
+&lt;h4&gt;重新啟動&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;systemctl enable dhcpcd.service
+exit
+umount -R /mnt
+reboot
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2&gt;好耶開機&lt;/h2&gt;
+&lt;h3&gt;設定網路&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;# 啟動 iwd 服務
+sudo systemctl start iwd
+
+iwctl
+# 後面就跟安裝的時候一樣步驟設定網路
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3&gt;設定新 user&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;# 新增使用者
+sudo useradd -m -G wheel -s /bin/bash username
+# 設定使用者密碼
+sudo passwd username
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3&gt;新增權限&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;usermod -aG wheel username
+visudo
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;進去檔案編輯之後
+把這行的註解刪掉&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# %wheel ALL=(ALL) ALL
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;變成這樣&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;%wheel ALL=(ALL) ALL
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;檢查權限&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo -lU ostechnix
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;:::warning
+如果碰到錯誤
+&lt;code&gt;visudo: no editor found (editor path = /usr/bin/vi)&lt;/code&gt;
+可以利用下面指令將預設editor從&lt;code&gt;vi&lt;/code&gt;改成&lt;code&gt;vim&lt;/code&gt;
+(如果你有vim的話)&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;ln -s /usr/bin/vim /usr/bin/vi
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;或是安裝&lt;code&gt;vi&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;pacman -S vi
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;:::&lt;/p&gt;
+&lt;h2&gt;安裝 Hyprland&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;記得不要用root裝&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3&gt;安裝 git&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;sudo pacman -S git
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3&gt;安裝&lt;s&gt;帕魯&lt;/s&gt;paru&lt;/h3&gt;
+&lt;p&gt;有兩種方法安裝&lt;/p&gt;
+&lt;h4&gt;用AUR裝&lt;/h4&gt;
+&lt;p&gt;:::spoiler&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo git clone https://aur.archlinux.org/paru.git
+cd paru
+makepkg -si
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;:::warning
+如果makepkg時碰到&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;==&amp;gt; Missing dependcies:
+  -&amp;gt;cargo
+==&amp;gt; ERROR: Could not resolve all dependcies.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;安裝rustup&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo pacman -S rustup
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;然後你可能又會碰到&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;error: rustup could not choose a version of rustc to run, because one wasn&apos;t specified explicitly, and no default is configured.
+help: run &apos;rustup default stable&apos; to download the latest stable release of Rust and set it as your default toolchain.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;就按照他說的跑&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;rustup default stable
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;:::&lt;/p&gt;
+&lt;h4&gt;用yay裝&lt;/h4&gt;
+&lt;p&gt;:::spoiler&lt;/p&gt;
+&lt;p&gt;我不是用這方法，但大概邏輯是這樣&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo git clone https://aur.archlinux.org/yay-git.git
+cd yay-git/
+sudo chown -R username:username ~/yay-git
+makepkg -si
+
+# 裝好之後
+yay -S paru
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;:::&lt;/p&gt;
+&lt;h3&gt;安裝 ml4w&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;paru -S ml4w-hyprland
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3&gt;讓他慢慢跑&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;ml4w-hyprland-setup
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;基本上介面淺顯易懂
+選擇你要的設定就好了&lt;/p&gt;
+&lt;h3&gt;好了&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;https://hackmd.io/_uploads/S1XyBHPWJl.jpg&quot; alt=&quot;20241105_150743&quot; /&gt;&lt;/p&gt;
+&lt;h2&gt;一些我碰到的問題&lt;/h2&gt;
+&lt;h3&gt;WARNING: Possibly missing firmware for module: &apos;XXXXX&apos;&lt;/h3&gt;
+&lt;p&gt;自己對照一下去下載對應的檔案
+https://wiki.archlinux.org/title/Mkinitcpio#Possibly_missing_firmware_for_module_XXXX&lt;/p&gt;
+&lt;h3&gt;Discord 不能打中文&lt;/h3&gt;
+&lt;p&gt;如果你已經裝了fcitx5注音但還是不能打中文
+可以試試看這個方法&lt;/p&gt;
+&lt;h4&gt;找到啟動設定檔&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;find /usr/share/applications ~/.local/share/applications -name &quot;*discord*.desktop&quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4&gt;編輯&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;vim /usr/share/applications/discord.desktop
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4&gt;在 &lt;code&gt;Exec=/usr/bin/discord&lt;/code&gt; 後面加上 &lt;code&gt;--enable-features=UseOzonePlatform --ozone-platform=wayland --enable-wayland-ime&lt;/code&gt;&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;Exec=/usr/bin/discord --enable-features=UseOzonePlatform --ozone-platform=wayland --enable-wayland-ime
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3&gt;設定連結開啟預設瀏覽器&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;xdg-settings set default-web-browser microsoft-edge.desktop
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2&gt;Reference&lt;/h2&gt;
+&lt;p&gt;大部分內容節錄自：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://wiki.archlinux.org/title/Installation_guide_(%E6%AD%A3%E9%AB%94%E4%B8%AD%E6%96%87)&quot;&gt;Arch Linux官方文件&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://hackmd.io/@PIFOPlfSS3W_CehLxS3hBQ/r1xrYth9V&quot;&gt;Arch linux 安裝 (By Eric Lin)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://youtu.be/6B4Kf30CWLg?si=0OZR_RfVwf5FbHJG&quot;&gt;ML4W Dotfiles 2.9.6 as AUR. Easy installation of HYPRLAND for Arch Linux, Garuda, Manjaro and more (By My Linux For Work)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</content:encoded></item><item><title>Design Patterns 筆記</title><link>https://yuyutw123.github.com/posts/designpattern/</link><guid isPermaLink="true">https://yuyutw123.github.com/posts/designpattern/</guid><description>Design Patterns 的學習筆記。</description><pubDate>Tue, 14 May 2024 00:00:00 GMT</pubDate><content:encoded>&lt;h1&gt;Creational Patterns&lt;/h1&gt;
+&lt;h2&gt;Factory Method&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Creational Patterns&lt;/li&gt;
+&lt;li&gt;provides an interface for creating objects in a superclass, but allows subclasses to alter the type of objects that will be created&lt;/li&gt;
+&lt;li&gt;總而言之，就是提供一個可以父類別，讓使用者可以根據不同的需求去創造子類別，並實例化父類別的function，不一定每次調用都會創建新的實例&lt;/li&gt;
+&lt;li&gt;&lt;img src=&quot;/img/DesignPatterns/Pasted_image_20240428164511.png&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;Code&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;#include&amp;lt;iostream&amp;gt;
+using namespace std;
+
+
+class Button {
+public:
+	virtual void render() = 0;
+	virtual void onClick(void (*f)()) = 0;
+
+};
+
+class WindowsButton: public Button {
+public:
+	void render() override {
+		cout &amp;lt;&amp;lt; &quot;render Windows Button&quot; &amp;lt;&amp;lt; endl;
+	}
+
+	void onClick(void (*f)()) override {
+		cout &amp;lt;&amp;lt; &quot;Windows Button clicked&quot; &amp;lt;&amp;lt; endl;
+	}
+};
+
+class HTMLButton: public Button {
+public:
+	void render() override {
+		cout &amp;lt;&amp;lt; &quot;render HTML Button&quot; &amp;lt;&amp;lt; endl;
+	}
+
+	void onClick(void (*f)()) override {
+		cout &amp;lt;&amp;lt; &quot;Web Button clicked&quot; &amp;lt;&amp;lt; endl;
+	}
+};
+
+
+
+class Dialog {
+public:
+	virtual Button* createButton() = 0;
+
+	void render() {
+		Button* okButton = createButton();
+
+		okButton-&amp;gt;onClick(closeDialog);
+		okButton-&amp;gt;render();
+	}
+
+	static void closeDialog() {
+		cout &amp;lt;&amp;lt; &quot;Close Dialog&quot; &amp;lt;&amp;lt; endl;
+	}
+};
+
+class WindowsDialog: public Dialog {
+
+public:
+	Button* createButton() override {
+		return new WindowsButton();
+	}
+
+};
+
+
+class WebDialog: public Dialog {
+
+public:
+	Button* createButton() override {
+		return new HTMLButton();
+	}
+
+};
+
+
+class Application {
+public:
+
+	Dialog* dialog;
+	void init(string config) {
+		if(config == &quot;Windows&quot;) {
+			dialog = new WindowsDialog();
+		} else if(config == &quot;Web&quot;){
+			dialog = new WebDialog();
+		} else {
+			cout &amp;lt;&amp;lt; &quot;Unknown OS&quot; &amp;lt;&amp;lt; endl;
+		}
+	}
+
+};
+
+
+int main() {
+	Application Client;
+	Client.init(&quot;Web&quot;);
+	Client.dialog-&amp;gt;render();
+
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2&gt;Abstract Factory Method&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Creational Patterns&lt;/li&gt;
+&lt;li&gt;lets you produce families of related objects without specifying their concrete classes&lt;/li&gt;
+&lt;li&gt;總而言之，就是根據要求創建不同的工廠，而工廠生產的產品一樣，但是type不同，根據要求返回不同類型的多個產品&lt;/li&gt;
+&lt;li&gt;&lt;img src=&quot;/img/DesignPatterns/Pasted_image_20240428164453.png&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;Code&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;#include&amp;lt;iostream&amp;gt;
+using namespace std;
+
+
+
+class Button {
+public:
+	virtual void paint() = 0;
+};
+
+class WinButton:public Button {
+public:
+	void paint() override {
+		cout &amp;lt;&amp;lt; &quot;Windows Button painted&quot; &amp;lt;&amp;lt; endl;
+	}
+};
+
+class MacButton:public Button {
+public:
+	void paint() override {
+		cout &amp;lt;&amp;lt; &quot;macOS Button painted&quot; &amp;lt;&amp;lt; endl;
+	}
+};
+
+class Checkbox {
+public:
+	virtual void paint() = 0;
+};
+
+class WinCheckbox:public Checkbox {
+public:
+	void paint() override {
+		cout &amp;lt;&amp;lt; &quot;Windows Checkbox painted&quot; &amp;lt;&amp;lt; endl;
+	}
+};
+
+class MacCheckbox:public Checkbox {
+public:
+	void paint() override {
+		cout &amp;lt;&amp;lt; &quot;macOS Checkbox painted&quot; &amp;lt;&amp;lt; endl;
+	}
+};
+
+class GUIFactory {
+public:
+	virtual Button* createButton() = 0;
+	virtual Checkbox* createCheckbox() = 0;
+};
+
+class WinFactory: public GUIFactory{
+public:
+	Button* createButton() override {
+		return new WinButton();
+	}
+	Checkbox* createCheckbox() override{
+		return new WinCheckbox();
+	}
+
+};
+
+class MacFactory: public GUIFactory{
+public:
+	Button* createButton() override {
+		return new MacButton();
+	}
+	Checkbox* createCheckbox() override{
+		return new MacCheckbox();
+	}
+
+};
+
+
+
+class Application {
+	GUIFactory* factory;
+	Button* button;
+	Checkbox* checkbox;
+public:
+	Application(GUIFactory* factory): factory(factory) {
+		this-&amp;gt;factory = factory;
+	}
+	void createUI() {
+		button = factory-&amp;gt;createButton();
+		checkbox = factory-&amp;gt;createCheckbox();
+	}
+	void paint() {
+		button-&amp;gt;paint();
+		checkbox-&amp;gt;paint();
+	}
+};
+
+class ApplicationConfigurator {
+public:
+	void main(string config) {
+		
+		GUIFactory* factory;
+		if(config == &quot;Windows&quot;) {
+			factory = new WinFactory();
+		} else if(config == &quot;Mac&quot;) {
+			factory = new MacFactory();
+		} else {
+			cout &amp;lt;&amp;lt; &quot;Unknow OS&quot; &amp;lt;&amp;lt; endl;
+		}
+
+		Application app(factory);
+		app.createUI();
+		app.paint();
+	}
+};
+
+int main() {
+	ApplicationConfigurator Client;
+	Client.main(&quot;Windows&quot;);
+	Client.main(&quot;Mac&quot;);
+
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2&gt;Builder Method&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Creational Patterns&lt;/li&gt;
+&lt;li&gt;allows you to produce different types and representations of an object using the same construction code.&lt;/li&gt;
+&lt;li&gt;總而言之，就是讓初始化的建構子不要太繁瑣，將對象構造的程式碼從產品類中抽離，並放在一個名為Builder的獨立對象中，Builder不允許其他對象訪問正在建造中的產品。&lt;/li&gt;
+&lt;li&gt;&lt;img src=&quot;/img/DesignPatterns/Pasted_image_20240427024720.png&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;Code&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;#include &amp;lt;iostream&amp;gt;
+#include &amp;lt;string&amp;gt;
+using namespace std;
+
+class Car{
+	int _seats;
+	string _engine;
+	bool _hasTripComputer;
+	bool _hasGPS;
+
+public:
+	void setSeats(int seats) {
+		_seats = seats;
+        cout &amp;lt;&amp;lt; &quot;Setting seats to &quot; &amp;lt;&amp;lt; seats &amp;lt;&amp;lt; endl;
+	}
+	void setEngine(string engine) {
+		_engine = engine;
+		cout &amp;lt;&amp;lt; &quot;Installing &quot; &amp;lt;&amp;lt; engine &amp;lt;&amp;lt; &quot; engine&quot; &amp;lt;&amp;lt; endl;
+	}
+	void setTripComputer(bool tmp) {
+		_hasTripComputer = tmp;
+		if (tmp) {
+            cout &amp;lt;&amp;lt; &quot;Installing trip computer&quot; &amp;lt;&amp;lt; endl;
+        }
+	}
+	void setGPS(bool tmp) {
+		_hasGPS = tmp;
+		if (tmp) {
+            cout &amp;lt;&amp;lt; &quot;Installing GPS&quot; &amp;lt;&amp;lt; endl;
+        }
+	}
+	void display() {
+		cout &amp;lt;&amp;lt; &quot;Car with &quot; &amp;lt;&amp;lt; _seats &amp;lt;&amp;lt; &quot; seats, engine: &quot; &amp;lt;&amp;lt; _engine;
+		cout &amp;lt;&amp;lt; &quot;, Trip computer: &quot; &amp;lt;&amp;lt; (_hasTripComputer ? &quot;Yes&quot; : &quot;No&quot;);
+		cout &amp;lt;&amp;lt; &quot;, GPS: &quot; &amp;lt;&amp;lt; (_hasGPS ? &quot;Yes&quot; : &quot;No&quot;) &amp;lt;&amp;lt; endl;
+	}
+};
+
+class Manual{
+	int _seats;
+	string _engine;
+	bool _hasTripComputer;
+	bool _hasGPS;
+public:
+    void setSeats(int seats) {
+		_seats = seats;
+        cout &amp;lt;&amp;lt; &quot;Adding manual for seats: &quot; &amp;lt;&amp;lt; seats &amp;lt;&amp;lt; endl;
+    }
+
+    void setEngine(const std::string engine) {
+		_engine = engine;
+        cout &amp;lt;&amp;lt; &quot;Adding manual for &quot; &amp;lt;&amp;lt; engine &amp;lt;&amp;lt; &quot; engine&quot; &amp;lt;&amp;lt; endl;
+    }
+
+    void setTripComputer(bool tmp) {
+		_hasTripComputer = tmp;
+        if (tmp) {
+            cout &amp;lt;&amp;lt; &quot;Adding manual for trip computer&quot; &amp;lt;&amp;lt; endl;
+        }
+    }
+
+    void setGPS(bool tmp) {
+		_hasGPS = tmp;
+        if (tmp) {
+            cout &amp;lt;&amp;lt; &quot;Adding manual for GPS&quot; &amp;lt;&amp;lt; endl;
+        }
+    }
+    void display() {
+		cout &amp;lt;&amp;lt; &quot;Car with &quot; &amp;lt;&amp;lt; _seats &amp;lt;&amp;lt; &quot; seats, engine: &quot; &amp;lt;&amp;lt; _engine;
+		cout &amp;lt;&amp;lt; &quot;, Trip computer: &quot; &amp;lt;&amp;lt; (_hasTripComputer ? &quot;Yes&quot; : &quot;No&quot;);
+		cout &amp;lt;&amp;lt; &quot;, GPS: &quot; &amp;lt;&amp;lt; (_hasGPS ? &quot;Yes&quot; : &quot;No&quot;) &amp;lt;&amp;lt; endl;
+	}
+};
+
+class Builder {
+public:
+	virtual void reset() = 0;
+	virtual void setSeats(int seats) = 0;
+	virtual void setEngine(string engine) = 0;
+	virtual void setTripComputer(bool tmp) = 0;
+	virtual void setGPS(bool tmp) = 0;
+};
+
+class CarBuilder: public Builder {
+	Car car;
+public:
+	CarBuilder() {
+		reset();
+	}
+	void reset() override {
+		car = Car();
+	}
+	void setSeats(int quantity) override {
+		car.setSeats(quantity);
+	}
+	void setEngine(string engine) override {
+		car.setEngine(engine);
+	}
+	void setTripComputer(bool tmp) override {
+		car.setTripComputer(tmp);
+	}
+	void setGPS(bool tmp) override {
+		car.setGPS(tmp);
+	}
+
+	Car getProduct() {
+		return car;
+	}
+};
+
+class CarManualBuilder: public Builder{
+    Manual manual;
+public:
+    void reset() override {
+        manual = Manual();
+    }
+    void setSeats(int seats) override {
+        manual.setSeats(seats);
+    }
+    void setEngine(const string engineType) override {
+        manual.setEngine(engineType);
+    }
+    void setTripComputer(bool included) override {
+        manual.setTripComputer(included);
+    }
+    void setGPS(bool included) override {
+        manual.setGPS(included);
+    }
+    Manual getProduct() {
+        return manual;
+    }
+};
+
+class Director {
+public:
+	void constrcuctSportsCar(Builder&amp;amp; builder) {
+		builder.reset();
+		builder.setSeats(2);
+		builder.setEngine(&quot;SportEngine&quot;);
+		builder.setTripComputer(true);
+		builder.setGPS(true);
+	}
+	void constrcuctSUV(Builder&amp;amp; builder) {
+		builder.reset();
+		builder.setSeats(4);
+		builder.setEngine(&quot;SUVEngine&quot;);
+		builder.setTripComputer(true);
+		builder.setGPS(true);
+	}
+};
+
+class Application {
+public:
+	void makeCar() {
+		Director director;
+
+		CarBuilder builder;
+		director.constrcuctSportsCar(builder);
+		Car car = builder.getProduct();
+		car.display();
+
+		CarManualBuilder manualBuilder;
+		director.constrcuctSportsCar(manualBuilder);
+		Manual manual = manualBuilder.getProduct();
+		manual.display();
+	}
+};
+
+int main() {
+	Application client;
+	client.makeCar();
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2&gt;Prototype Method&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Creational Patterns&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;lets you copy existing objects without making your code dependent on their classes.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;簡單來說，就是做一個通用接口(Prototype)，讓使用者可以用該接口clone不同類型的對象&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;img src=&quot;/img/DesignPatterns/Pasted_image_20240509231212.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Singleton Method&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Creational Patterns&lt;/li&gt;
+&lt;li&gt;lets you ensure that a class has only one instance, while providing a global access point to this instance.&lt;/li&gt;
+&lt;li&gt;保證一個class只有一個instance，並提供一個訪問該instance的global access&lt;/li&gt;
+&lt;li&gt;&lt;img src=&quot;/img/DesignPatterns/Pasted_image_20240509231238.png&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1&gt;Strcutional Patterns&lt;/h1&gt;
+&lt;h2&gt;Adapter Method&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Structural Patterns&lt;/li&gt;
+&lt;li&gt;allows objects with incompatible interfaces to collaborate.&lt;/li&gt;
+&lt;li&gt;適配器，轉換資料，讓資料可以換一種格式以供客戶使用其他接口&lt;/li&gt;
+&lt;li&gt;&lt;img src=&quot;/img/DesignPatterns/Pasted_image_20240510004608.png&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Bridge Method&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Structural Patterns&lt;/li&gt;
+&lt;li&gt;lets you split a large class or a set of closely related classes into two separate hierarchies—abstraction and implementation—which can be developed independently of each other.&lt;/li&gt;
+&lt;li&gt;將繼承關係轉換為關聯關係，降低程式碼的複雜度，還有類與類之間的耦合；將抽象與實現解耦，使得兩者可以獨立變化&lt;/li&gt;
+&lt;li&gt;淺顯易懂的影片 https://youtu.be/3Wkp4AEaubI?si=8o4P7IHKFQ9r1QcT&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Composite Method&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;就是樹，應該吧&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Decorator Method&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;寫一個新的class，對原有的class新增功能；相較於對原有的class新增子類，這個方法不用被限制於原有類，繼承是靜態的，無法在執行時更改已有對象的行為，只能由不同子類創建的對象來替代當前的整個對象；且子類只能有一個父類。&lt;/li&gt;
+&lt;li&gt;所以 Decorator 比生成子類更加靈活。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Facade Method&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;提供用戶一個簡單明瞭的接口，不讓背後繁瑣的系統程序顯現在表面&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Flyweight Method&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;將重複的狀態儲存起來，降低系統的浪費&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Proxy Method&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;就，代理，可以控制客戶請求，並處理過濾，減少對原系統負荷&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Chain of Responsibility Method&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;對請求處理，一個處理者沒處理完就給下一個，層層遞進，直到請求處理完成&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Command Method&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;將使用者操作轉換成命令，而不是操作直接對應處理程序&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Iterator Method&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;對collection創建一個迭代器，讓用戶可以獲取下一個元素、當前位置、重新開始迭代等；在不暴露底層結構的情況下遍歷元素。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Mediator Method&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;減少對象之間混亂的依賴關係，限制對象之間的直接交互，迫使對象們藉由一個中介者對象進行合作&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Memento Method&lt;/h2&gt;
+&lt;p&gt;在不破壞對象封裝情況的前提下創建對象狀態快照，可通過讓負責人維護原發器狀態歷史紀錄來簡化原發器代碼&lt;/p&gt;
+&lt;h2&gt;Observer Method&lt;/h2&gt;
+&lt;p&gt;定義一種一對多依賴關係，使得每當一個對象狀態發生改變時，其相關依賴對象皆得到通知並被自動更新&lt;/p&gt;
+&lt;h2&gt;State Method&lt;/h2&gt;
+&lt;p&gt;將原始對象指向每種狀態的class，且將所以與狀態相關的工作委託給狀態class&lt;/p&gt;
+&lt;h2&gt;Strategy Method&lt;/h2&gt;
+&lt;p&gt;將算法裝到一個名為策略的獨立class，並在需要策略算法時，通過接口將工作委派給策略的class去選擇並回傳演算法&lt;/p&gt;
+</content:encoded></item><item><title>電腦組裝心得</title><link>https://yuyutw123.github.com/posts/computer/computer/</link><guid isPermaLink="true">https://yuyutw123.github.com/posts/computer/computer/</guid><description>好欸新電腦。</description><pubDate>Mon, 07 Aug 2023 00:00:00 GMT</pubDate><content:encoded>&lt;h1&gt;前言&lt;/h1&gt;
+&lt;p&gt;自己組一台全新的桌機，從配單到組裝全部自己來，是我接觸電腦硬體之後最想做的事，但礙於經費問題，這個小小的目標一直放在我的心理無法實踐。&lt;/p&gt;
+&lt;p&gt;今年暑假剛好想要去的工讀錄取了，算了一下薪水夠組一台自己期望程度的桌機，所以就開始配單了。&lt;/p&gt;
+&lt;h1&gt;配備&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;CPU: AMD R9 7900X &amp;lt;br&amp;gt;&lt;/li&gt;
+&lt;li&gt;GPU: 技嘉 GeForce RTX 4070 WINDFORCE OC 12GB &amp;lt;br&amp;gt;&lt;/li&gt;
+&lt;li&gt;MB: 微星 MPG B650 EDGE WIFI &amp;lt;br&amp;gt;&lt;/li&gt;
+&lt;li&gt;RAM: 威剛 DDR5 5600 XPG Lancer 32GB(雙通道16GBx2) &amp;lt;br&amp;gt;&lt;/li&gt;
+&lt;li&gt;SSD: PNY CS3040 2TB &amp;lt;br&amp;gt;&lt;/li&gt;
+&lt;li&gt;Cooler: Montech Metal DT24 Premium &amp;lt;br&amp;gt;&lt;/li&gt;
+&lt;li&gt;Case: Montech Air 1000 PREMIUM &amp;lt;br&amp;gt;&lt;/li&gt;
+&lt;li&gt;PSU: CENTURY 850W &amp;lt;br&amp;gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1&gt;配單思路&lt;/h1&gt;
+&lt;p&gt;首先是CPU，我選的是AMD的R9 7900X，對，現在已經沒有人在AMD YES了，Intel 12﹑13代的性能躍進，但我還是選了AMD，考慮到未來可能會想換新代的U來玩，所以選AMD平台。然後原本是打算在Amazon上面買，比台灣通路便宜，加上免運，又有國際保，沒理由不在Amazon買，一切看似如此完美，這個念頭就在原價屋特價到比Amazon便宜之後打消了。&amp;lt;br&amp;gt;&lt;/p&gt;
+&lt;p&gt;其實原本也有在考慮同價位的X3D系列U，但其實我也沒那麼多3A大作可以玩，所以還是選多工好一點點的7900X。&lt;/p&gt;
+&lt;p&gt;（喔然後其實這些是冰棒和我說的，其實我原本會想買Intel，這次組單蠻多都是和冰棒討論之後做的選擇，他好電🛐）&lt;/p&gt;
+&lt;p&gt;再來是主機板，微星的MPG B650 EDGE WIFI，冰棒推薦的，因為他說這個板子有好多USB槽真香，供電夠也有WIFI，然後我比較其他同價位和相同規格的主機板，最後也是選了這個。&lt;/p&gt;
+&lt;p&gt;接著是記憶體，威剛 XPG Lancer DDR5 5600 32GB 雙通道，好看然後相對便宜，對，就這樣。
+塔扇：Montech Metal DT24 Premium
+也是同樣理由。&lt;/p&gt;
+&lt;p&gt;機殼和電源，我是選Montech Air 1000 PREMIUM和CENTURY 850W，因為他們綁在一起買比較便宜，然後我有查了君主的電源評價，看起來還行，有查到事故但看起來是個人問題，然後保固是直接換新品，售後好像很不錯，所以就選了這個。&lt;/p&gt;
+&lt;p&gt;硬碟延用原本就有的PNY CS3040 2TB。&lt;/p&gt;
+&lt;p&gt;上面的零件除了硬碟之外都是在原價屋買的，原本想說給他們組就好了，但是要他們組要先付訂金，覺得很麻煩就想說自己組好了。&lt;/p&gt;
+&lt;p&gt;原價屋買的零件到齊後，我就把電腦組起來了，咦？是不是哪裡怪怪的，說了這麼多，還沒提到一個很重要的零件呢？&lt;/p&gt;
+&lt;p&gt;「顯示卡」&lt;/p&gt;
+&lt;p&gt;沒錯，這個單子裡面沒出現顯卡，所以我組起來的時候，是延用舊的GTX 960 2GB，這段時間一直在等40系列顯卡價錢降價，奈何真的等不到，這個價錢維持好久了，俗話說早買早享受，某一天在滑PChome的時候發現有優惠卷折1500…好了啦，買了。&lt;/p&gt;
+&lt;p&gt;顯卡我買的是丐板的技嘉RTX 4070 WINDFORCE OC 12G，原本在思考要3070還是4060，但是又看到4060的刀法很狠，所以預算捏了一下還是上了4070，雖然是三風扇，但是這張的體積比有些雙風扇的4070還小，所以就選了這張，看別人評測解熱能力也夠，所以選丐板就很夠了。&lt;/p&gt;
+&lt;h1&gt;組裝心得&lt;/h1&gt;
+&lt;p&gt;接者是組裝。&lt;/p&gt;
+&lt;p&gt;我有過的組裝經驗只有我的舊桌機，那個也已經是2代intel平台了，所以組這麼新的平台還是第一次，但組電腦邏輯都大同小異，所以這次組裝也蠻順利的，除了那個CPU風扇我插超久。組裝完之後一次點亮，好耶。&lt;/p&gt;
+&lt;p&gt;灌完系統之後我就開始用了，好用，好玩。&lt;/p&gt;
+</content:encoded></item></channel></rss>
