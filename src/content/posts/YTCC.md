@@ -4,7 +4,7 @@ published: 2022-04-17
 description: '輸出YT CC字幕的東東。'
 # image: '/assets/images/logo.png'
 tags: ["Python", "Tkinter"]
-category: 'Side Project'
+category: 'Side project'
 draft: false 
 ---
 # YouTube CC字幕輸出工具
