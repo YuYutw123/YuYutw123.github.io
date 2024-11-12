@@ -1,5 +1,5 @@
 ---
-title: 電腦組裝心得
+title: 電腦配單＋組裝心得
 category: Diary
 description: 好欸新電腦。
 draft: false
