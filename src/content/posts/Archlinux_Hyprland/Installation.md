@@ -383,10 +383,22 @@ vim /usr/share/applications/discord.desktop
 Exec=/usr/bin/discord --enable-features=UseOzonePlatform --ozone-platform=wayland --enable-wayland-ime
 ```
 
+#### 如果你用的是 X11 ，不是Wayland
+#### 在 `Exec=/usr/bin/discord` 後面加上 `--enable-features=UseOzonePlatform --ozone-platform=x11`
+```bash=
+Exec=/usr/bin/discord --enable-features=UseOzonePlatform --ozone-platform=x11
+```
+
 ### 設定連結開啟預設瀏覽器 
 ```bash=
 xdg-settings set default-web-browser microsoft-edge.desktop
 ```
+### 強制用 Xwayland 開啟程式
+如果有些程式無法複製貼上的話可以試試看 <br>
+Electron apps 很可能會遇到 <br>
+我遇到過 Discord 和 VS code 無法貼上 Edge 複製過去的東西 <br>
+
+https://www.reddit.com/r/hyprland/comments/1gmpxa2/i_cant_paste_text_from_microsoft_edge_to_vs_code/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button
 
 ## Reference
 大部分內容節錄自：
