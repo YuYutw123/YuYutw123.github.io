@@ -5,10 +5,9 @@
 
 ## 休閒
 
-* 百合重度成癮
-* 不獸控制uwu
-* Vtuber目前淡坑中，但被YT推還是會看。
-* 會看圖奇實況，主要看KSP。
+* 百合 + Furry 愛好者
+* Vtuber目前淡坑中，被推精華還是會看。
+* 圖奇實況，主要看KSP。
 * NieR系列, Valorant, Minecraft, [osu!](https://osu.ppy.sh/users/11899147)
 
 ## 興趣
