@@ -46,7 +46,7 @@ const Comments = () => {
                     repoId='R_kgDONUsJVg'
                     category='General'
                     categoryId='DIC_kwDONUsJVs4CkrUq'
-                    mapping='title'
+                    mapping='url'
                     reactionsEnabled='1'
                     emitMetadata='0'
                     inputPosition='top'
