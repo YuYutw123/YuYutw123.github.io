@@ -5,7 +5,7 @@ const id = 'inject-comments'
 
 // Retrieve the theme configuration from localStorage
 function getSavedTheme() {
-    return window.localStorage.getItem('theme')
+    return window.localStorage.getItem('theme') || 'dark'
 }
 
 const Comments = () => {
