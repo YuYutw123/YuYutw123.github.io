@@ -4,7 +4,7 @@ category: Diary
 description: 好欸新電腦。
 draft: false
 published: 2023-08-07
-tags: ["DIY", "Hardware", "日常"]
+tags: ["Hardware"]
 ---
 
 # 前言

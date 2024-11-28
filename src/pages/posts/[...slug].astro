@@ -10,9 +10,9 @@ import { getDir, getPostUrlBySlug } from '@utils/url-utils'
 import { Icon } from 'astro-icon/components'
 import { licenseConfig } from 'src/config'
 import PostMetadata from '../../components/PostMeta.astro'
+import Comments from '../../components/customize/Comment'
 import ImageWrapper from '../../components/misc/ImageWrapper.astro'
 import { profileConfig, siteConfig } from '../../config'
-import Comments from '../../customize/Comment'
 import { formatDateToYYYYMMDD } from '../../utils/date-utils'
 
 export async function getStaticPaths() {

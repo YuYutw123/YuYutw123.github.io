@@ -4,7 +4,7 @@ category: Notes
 description: Design Patterns 的學習筆記。
 draft: false
 published: 2024-05-14
-tags: ["DesignPatterns"]
+tags: ["Design Patterns"]
 ---
 
 # Creational Patterns
