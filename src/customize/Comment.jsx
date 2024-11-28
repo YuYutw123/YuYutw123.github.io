@@ -42,11 +42,11 @@ const Comments = () => {
             {mounted ? (
                 <Giscus
                     id={id}
-                    repo='"YuYutw123/YuYutw123.github.io'
+                    repo='YuYutw123/YuYutw123.github.io'
                     repoId='R_kgDONUsJVg'
                     category='General'
                     categoryId='DIC_kwDONUsJVs4CkrUq'
-                    mapping='url'
+                    mapping='title'
                     reactionsEnabled='1'
                     emitMetadata='0'
                     inputPosition='top'
