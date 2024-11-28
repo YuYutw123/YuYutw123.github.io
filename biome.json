@@ -10,7 +10,7 @@
     "formatWithErrors": false,
     "ignore": ["src/config.ts"],
     "indentStyle": "space",
-    "indentWidth": 2,
+    "indentWidth": 4,
     "lineWidth": 80
   },
   "javascript": {
