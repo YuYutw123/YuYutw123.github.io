@@ -50,7 +50,7 @@ const Comments = () => {
                     reactionsEnabled='1'
                     emitMetadata='0'
                     inputPosition='top'
-                    lang='zh-TW'
+                    lang='en'
                     loading='lazy'
                     theme={theme}
                 />
