@@ -2,7 +2,7 @@
 title: Astro + Github Pages + giscus
 category: Notes
 description: 幫你的 Astro Blog 加上留言功能。
-draft: true
+draft: false
 published: 2024-11-28
 tags: ["Astro", "giscus", "Tutorial"]
 ---
@@ -32,6 +32,82 @@ tags: ["Astro", "giscus", "Tutorial"]
 
 你會發現通常 Blog 都有分亮色和暗色模式，但是giscus正常的嵌入只能選一個 theme <br>
 所以我們要設變數讓網頁在切換亮暗的時候，留言區也可以切換主題 <br>
+
+## 用 React 寫一個留言的 Component 偵測主題變換
+
+```js
+import Giscus from '@giscus/react'
+import { useEffect, useState } from 'react'
+
+const getSystemTheme = () =>
+  window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+
+const getSavedTheme = () => window.localStorage.getItem('theme') || 'dark'
+
+const Comments = () => {
+  const [mounted, setMounted] = useState(false)
+  const [theme, setTheme] = useState('auto')
+
+  // If theme == auto, then get systemtheme, to prevent giscus theme error
+  useEffect(() => {
+    const handleStorageChange = event => {
+      if (event.key === 'theme') {
+        const newTheme =
+          event.newValue === 'auto'
+            ? getSystemTheme()
+            : event.newValue || 'light'
+        setTheme(newTheme)
+      }
+    }
+
+    window.addEventListener('storage', handleStorageChange)
+
+    // Initial theme setup
+    setTheme(getSavedTheme() === 'auto' ? getSystemTheme() : getSavedTheme())
+
+    return () => window.removeEventListener('storage', handleStorageChange)
+  }, [])
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  return (
+    <div id='inject-comments' className='w-full'>
+      {mounted && (
+        <Giscus
+          id='inject-comments'
+          repo='YuYutw123/YuYutw123.github.io'
+          repoId='R_kgDONUsJVg'
+          category='Announcements'
+          categoryId='DIC_kwDONUsJVs4CkrUq'
+          mapping='title'
+          reactionsEnabled='1'
+          emitMetadata='0'
+          inputPosition='top'
+          lang='en'
+          loading='lazy'
+          theme={theme === 'auto' ? getSystemTheme() : theme}
+        />
+      )}
+    </div>
+  )
+}
+
+export default Comments
+
+```
+
+## 導入 post 檔案
+```js
+import Comments from '../../components/customize/Comment'
+
+<Comments client:only="react" />
+```
+
+# 結語
+
+之後有機會的話再看看有沒有更好的留言板系統，giscus要登入 Github 才能留言，還是有點小麻煩\:p
 
 # Reference
 [使用 giscus 为你的 Astro 博客添加评论功能 (By liruifengv李瑞丰)](https://juejin.cn/post/7359405432802607167)

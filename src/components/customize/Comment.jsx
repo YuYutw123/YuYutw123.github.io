@@ -10,6 +10,7 @@ const Comments = () => {
   const [mounted, setMounted] = useState(false)
   const [theme, setTheme] = useState('auto')
 
+  // If theme == auto, then get systemtheme, to prevent giscus theme error
   useEffect(() => {
     const handleStorageChange = event => {
       if (event.key === 'theme') {
