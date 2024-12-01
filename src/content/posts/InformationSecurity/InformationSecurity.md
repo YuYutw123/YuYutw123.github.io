@@ -11,6 +11,21 @@ lang: ''
 
 > 授課老師：林韓禹 Han-Yu Lin
 
+[CH05 The Business of Security](#ch05-the-business-of-security)
+* [Business Continuity Planning (BCP)](#business-continuity-planning-bcp)
+* [Implementing Controls](#implementing-controls)
+* [Maintaining the Plan](#maintaining-the-plan)
+* [Disaster Recovery Planning](#disaster-recovery-planning)
+* [Selecting the Team](#selecting-the-team)
+* [Building the Plan](#building-the-plan)
+* [Disaster Recover Facilities](#disaster-recover-facilities)
+* [Creative Disaster Recovery](#creative-disaster-recovery)
+* [Training](#training)
+* [Testing](#testing)
+* [Implementing The Plan](#implementing-the-plan)
+* [Maintaining the Plan](#maintaining-the-plan)
+* [Data Classification](#data-classification)
+* [Security Clearances](#security-clearances)
 
 # CH05 The Business of Security
 
