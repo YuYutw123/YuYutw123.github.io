@@ -9,7 +9,7 @@ draft: false
 lang: ''
 ---
 
-> 授課老師：林韓禹 Han-Yu Lin
+> 授課老師：林韓禹
 
 [CH05 The Business of Security](#ch05-the-business-of-security)
 * [Business Continuity Planning (BCP)](#business-continuity-planning-bcp)
