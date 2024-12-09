@@ -36,6 +36,10 @@ lang: ''
     * 如果定義L為特定矩陣，則A的LU分解為唯一的
     * Doolittle’s method就是定義對角線元素全為1
 ### Doolittle’s method
-
+![alt text](image.png)
 ### Time complexity
 ### Error analysis
+
+
+# Reference
+* 老師的簡報

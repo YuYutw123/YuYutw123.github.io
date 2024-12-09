@@ -11,7 +11,7 @@ lang: ''
 
 > 授課老師：林韓禹
 
-[CH05 The Business of Security](#ch05-the-business-of-security)
+<!-- [CH05 The Business of Security](#ch05-the-business-of-security)
 * [Business Continuity Planning (BCP)](#business-continuity-planning-bcp)
 * [Implementing Controls](#implementing-controls)
 * [Maintaining the Plan](#maintaining-the-plan)
@@ -136,7 +136,7 @@ lang: ''
     * Need to know 知情必要性
 * 政府和私人企業有相似的分類系統
 
-## Security Clearances
+## Security Clearances -->
 
 # 單字筆記
 
@@ -150,6 +150,13 @@ lang: ''
 * labor-intensive 勞力密集
 * verbally 口頭地
 * debriefings 彙報
+
+## CH06
+* Cryptology 密碼學
+* Cryptography 加密
+* Cryptanalysis 解密
+* Crypto 以上全部(還有包含更多)
+* symmetric 對稱
 
 # Reference
 * 老師上課用的簡報
