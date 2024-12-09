@@ -8,7 +8,7 @@ tags: ["Astro", "giscus", "Tutorial"]
 ---
 
 # 前言
-我很喜歡[現在這個 Blog 模板](https://github.com/saicaca/fuwari)，但目前作者還沒有做出留言功能，所以我就用 giscus 幫這個 Blog 遷入留言功能。
+我很喜歡[現在這個 Blog 模板](https://github.com/saicaca/fuwari)，但目前作者還沒有做出留言功能，所以我就用 giscus 幫這個 Blog 嵌入留言功能。
 
 # 前置作業
 1. 先到 [giscus 官網](https://giscus.app/zh-TW)
