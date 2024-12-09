@@ -138,7 +138,7 @@ lang: ''
 
 ## Security Clearances -->
 
-# 單字筆記
+# 名詞解釋
 
 ## CH05
 * quadrant map 象限圖
@@ -157,6 +157,18 @@ lang: ''
 * Cryptanalysis 解密
 * Crypto 以上全部(還有包含更多)
 * symmetric 對稱
+* Kerckhoffs Principle
+    * 攻擊者知道整個系統
+    * 只有密鑰是秘密
+* Confidentiality 機密性
+* Integrity 完整性
+* digest 摘要
+* asymmetric 非對稱
+* Nonrepudiation 不可否認性
+* obscurity 朦朧
+* rigorously 嚴格地
+* PGP, Pretty Good Privacy
+* Implicit 隱性
 
 # Reference
 * 老師上課用的簡報
