@@ -27,6 +27,24 @@ lang: ''
 * [Data Classification](#data-classification)
 * [Security Clearances](#security-clearances)
 
+# CH04 General Security Principles 
+and Practices
+
+## Common Security Principles
+* Separation of Privileges Principle 分散權力原則
+    * 不能讓一個人擁有造成危機的權利
+* Least Privilege Principle 最小權力原則
+    * 一個個體只能有達到目標的最小控制權
+    * 常見違反狀況來自管理員的疏失 (administrator inattention)
+    * 還有另一種常見狀況是權限蔓延 (privilege creep)
+* Defense in Depth Principle 縱深防禦原則
+    * 用分層方式防護
+    * 從入口點開始防禦，接著集中防禦在bottleneck points
+* Security through Obscurity 模糊式防禦
+    * 早期基於保密來鞏固安全性
+    * 已不再這麼有效，因為很多資訊變得容易取得
+
+
 # CH05 The Business of Security
 
 ## Business Continuity Planning (BCP)
