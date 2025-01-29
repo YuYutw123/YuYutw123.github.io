@@ -5,7 +5,7 @@ description: '一緒に迷子になろう'
 image: ''
 tags: ['Mod', 'Game', 'Tutorial']
 category: 'Side project'
-draft: true 
+draft: false
 lang: ''
 ---
 ![alt text](image.png)
