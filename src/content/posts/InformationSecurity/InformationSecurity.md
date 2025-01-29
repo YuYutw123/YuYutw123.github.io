@@ -158,6 +158,14 @@ and Practices
 
 # 名詞解釋
 
+## CH04
+* privilege creep 權力蔓延
+* Obscurity 朦朧
+* Mandatory 強制的
+* Evaluations 評價
+* Perimeter protection 周遭的防禦
+* Electronic Emanations 電子放射
+
 ## CH05
 * quadrant map 象限圖
 * assessment 評估
@@ -168,6 +176,7 @@ and Practices
 * labor-intensive 勞力密集
 * verbally 口頭地
 * debriefings 彙報
+* rigorous 嚴格的
 
 ## CH06
 * Cryptology 密碼學
@@ -190,5 +199,4 @@ and Practices
 
 # Reference
 * 老師上課用的簡報
-* [1062 資安筆記 (By 
-PenutChen) ](https://hackmd.io/@PenutChen/rJ85P4MCN)
+* [1062 資安筆記 (By PenutChen) ](https://hackmd.io/@PenutChen/rJ85P4MCN)
