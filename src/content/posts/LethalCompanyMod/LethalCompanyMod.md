@@ -1,5 +1,5 @@
 ---
-title: Lethal Company 自定義Model模組 紀錄
+title: Lethal Company 自定義Model模組 教學
 published: 2025-01-29
 description: '一緒に迷子になろう'
 image: ''
