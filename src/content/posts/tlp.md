@@ -20,3 +20,6 @@ sudo tlp start
 ```
 /etc/tlp.conf
 ```
+
+# Reference
+[Arch Linux Wiki - TLP](https://wiki.archlinux.org/title/TLP)
