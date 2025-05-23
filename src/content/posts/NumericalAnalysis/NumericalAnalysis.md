@@ -4,7 +4,7 @@ published: 2024-12-02
 description: '早上11點要考試，凌晨2點開始複習:)'
 image: ''
 tags: ["Course", "Numerical Analysis", "海洋大學"]
-category: ''
+category: 'School'
 draft: true
 lang: ''
 ---
@@ -13,10 +13,13 @@ lang: ''
 
 # LU 分解
 ## Doolittle’s Method
-* [Introduction, triangular systems](#introduction-triangular-systems)
-* [Doolittle’s method](#doolittles-method-1)
-* [Time complexity](#time-complexity)
-* [Error analysis](#error-analysis)
+- [LU 分解](#lu-分解)
+  - [Doolittle’s Method](#doolittles-method)
+    - [Introduction, triangular systems](#introduction-triangular-systems)
+    - [Doolittle’s method](#doolittles-method-1)
+    - [Time complexity](#time-complexity)
+    - [Error analysis](#error-analysis)
+- [Reference](#reference)
 
 ### Introduction, triangular systems
 * LU 分解: 給一個線性系統，把他的係數矩陣，分解成**上三角**和**下三角**矩陣

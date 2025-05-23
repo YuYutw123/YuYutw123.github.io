@@ -4,7 +4,7 @@ published: 2024-12-04
 description: ''
 image: ''
 tags: []
-category: ''
+category: 'School'
 draft: true 
 lang: ''
 ---

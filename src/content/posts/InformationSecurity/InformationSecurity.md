@@ -4,7 +4,7 @@ published: 2024-11-25
 description: '早上11點要考試，凌晨12點開始複習:)'
 image: ''
 tags: ["Course", "Information Security", "海洋大學"]
-category: 'Notes'
+category: 'School'
 draft: false 
 lang: ''
 ---
