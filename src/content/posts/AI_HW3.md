@@ -5,7 +5,7 @@ description: '偶爾認真寫一下作業'
 image: ''
 tags: ['Course', 'Python', 'AI']
 category: 'School'
-draft: false 
+draft: true 
 lang: ''
 ---
 
