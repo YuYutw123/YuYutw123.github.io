@@ -2,7 +2,7 @@
 title: 精誠資訊 程式開發實習生 面試分享
 category: Diary
 description: 就，面試分享
-draft: false
+draft: true
 published: 2025-05-19
 tags: ["日常", "面試", "實習"]
 ---
