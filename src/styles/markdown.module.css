@@ -1,0 +1,143 @@
+.markdown {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif,
+        "Apple Color Emoji", "Segoe UI Emoji";
+    font-size: 16px;
+    line-height: 1.6;
+    color: #24292e;
+    background-color: #fff;
+    word-wrap: break-word;
+}
+
+.markdown h1,
+.markdown h2,
+.markdown h3,
+.markdown h4,
+.markdown h5,
+.markdown h6 {
+    margin-top: 24px;
+    margin-bottom: 16px;
+    font-weight: 600;
+    line-height: 1.25;
+}
+
+.markdown h1 {
+    font-size: 2em;
+    border-bottom: 1px solid #eaecef;
+    padding-bottom: 0.3em;
+}
+
+.markdown h2 {
+    font-size: 1.5em;
+    border-bottom: 1px solid #eaecef;
+    padding-bottom: 0.3em;
+}
+
+.markdown h3 {
+    font-size: 1.25em;
+}
+
+.markdown p {
+    margin: 16px 0;
+}
+
+.markdown a {
+    color: #0366d6;
+    text-decoration: none;
+}
+.markdown a:hover {
+    text-decoration: underline;
+}
+
+.markdown code {
+    background-color: rgba(27, 31, 35, 0.05);
+    padding: 0.2em 0.4em;
+    margin: 0;
+    border-radius: 6px;
+    font-size: 85%;
+    font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace;
+}
+
+.markdown pre {
+    /* background-color: #f6f8fa; */
+    /* padding: 16px; */
+    overflow: auto;
+    border-radius: 6px;
+    font-size: 85%;
+    line-height: 1.45;
+}
+
+.markdown pre code {
+    all: unset;
+    /* background: none;
+    padding: 0;
+    margin: 0;
+    font-size: 100%;
+    border: 0; */
+}
+
+.markdown blockquote {
+    margin: 0;
+    padding-left: 1em;
+    border-left: 0.25em solid #dfe2e5;
+    color: #6a737d;
+}
+
+.markdown ul,
+.markdown ol {
+    padding-left: 2em;
+    margin-top: 0;
+    margin-bottom: 16px;
+}
+
+.markdown table {
+    border-spacing: 0;
+    border-collapse: collapse;
+    margin: 1em 0;
+    width: 100%;
+}
+
+.markdown th,
+.markdown td {
+    padding: 6px 13px;
+    border: 1px solid #dfe2e5;
+}
+
+.markdown th {
+    font-weight: 600;
+    background-color: #f6f8fa;
+}
+
+.markdown ul {
+    list-style-type: disc; /* 第一層顯示圓點 */
+    padding-left: 2em;     /* 縮排 */
+    margin-top: 0;
+    margin-bottom: 16px;
+}
+
+.markdown ul ul {
+    list-style-type: circle; /* 第二層顯示空心圓 */
+    padding-left: 2em;       /* 縮排 */
+}
+
+.markdown ul ul ul {
+    list-style-type: square; /* 第三層顯示方塊 */
+    padding-left: 2em;
+}
+
+/* 有序列表可以選擇這樣 */
+.markdown ol {
+    list-style-type: decimal;
+    padding-left: 2em;
+    margin-top: 0;
+    margin-bottom: 16px;
+}
+
+.markdown ol ol {
+    list-style-type: lower-alpha;
+    padding-left: 2em;
+}
+
+.markdown ol ol ol {
+    list-style-type: lower-roman;
+    padding-left: 2em;
+}
