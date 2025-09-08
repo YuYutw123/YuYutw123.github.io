@@ -3,8 +3,6 @@ import Link from "next/link";
 import { getSortedPostsData } from "@/lib/posts";
 import Date from "@/components/date";
 
-const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH || "";
-
 export default async function Home() {
     const allPostsData = getSortedPostsData();
 
@@ -17,10 +15,12 @@ export default async function Home() {
                 {allPostsData.map(({ id, date, title }) => (
                     <Link
                         key={id}
-                        href={`${BASE_PATH}/posts/${id}`}
+                        href={`/posts/${id}`}
                         className="block py-4 hover:bg-gray-50 transition-colors"
                     >
-                        <h2 className="text-xl font-semibold text-gray-800 mb-1">{title}</h2>
+                        <h2 className="text-xl font-semibold text-gray-800 mb-1">
+                            {title}
+                        </h2>
                         <div className="text-sm text-gray-500">
                             <Date dateString={date} />
                         </div>
