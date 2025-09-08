@@ -1,10 +1,6 @@
 ---
-title: Design Patterns 筆記
-category: Notes
-description: Design Patterns 的學習筆記。
-draft: false
-published: 2024-05-14
-tags: ["Design Patterns"]
+title: "Design Patterns 筆記"
+date: "2024-05-14"
 ---
 
 # Creational Patterns

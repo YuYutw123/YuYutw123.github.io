@@ -1,6 +1,6 @@
 ---
-title: '電腦配單＋組裝心得'
-date: '2023-08-07'
+title: "電腦配單＋組裝心得"
+date: "2023-08-07"
 ---
 
 # 前言
@@ -10,17 +10,17 @@ date: '2023-08-07'
 
 # 配備
 
-* CPU: AMD R9 7900X <br>
-* GPU: 技嘉 GeForce RTX 4070 WINDFORCE OC 12GB <br>
-* MB: 微星 MPG B650 EDGE WIFI <br>
-* RAM: 威剛 DDR5 5600 XPG Lancer 32GB(雙通道16GBx2) <br>
-* SSD: PNY CS3040 2TB <br>
-* Cooler: Montech Metal DT24 Premium <br>
-* Case: Montech Air 1000 PREMIUM <br>
-* PSU: CENTURY 850W <br>
+* CPU: AMD R9 7900X
+* GPU: 技嘉 GeForce RTX 4070 WINDFORCE OC 12GB
+* MB: 微星 MPG B650 EDGE WIFI
+* RAM: 威剛 DDR5 5600 XPG Lancer 32GB(雙通道16GBx2)
+* SSD: PNY CS3040 2TB
+* Cooler: Montech Metal DT24 Premium
+* Case: Montech Air 1000 PREMIUM
+* PSU: CENTURY 850W
 
 # 配單思路
-首先是CPU，我選的是AMD的R9 7900X，對，現在已經沒有人在AMD YES了，Intel 12﹑13代的性能躍進，但我還是選了AMD，考慮到未來可能會想換新代的U來玩，所以選AMD平台。然後原本是打算在Amazon上面買，比台灣通路便宜，加上免運，又有國際保，沒理由不在Amazon買，一切看似如此完美，這個念頭就在原價屋特價到比Amazon便宜之後打消了。<br>
+首先是CPU，我選的是AMD的R9 7900X，對，現在已經沒有人在AMD YES了，Intel 12﹑13代的性能躍進，但我還是選了AMD，考慮到未來可能會想換新代的U來玩，所以選AMD平台。然後原本是打算在Amazon上面買，比台灣通路便宜，加上免運，又有國際保，沒理由不在Amazon買，一切看似如此完美，這個念頭就在原價屋特價到比Amazon便宜之後打消了。
 
 其實原本也有在考慮同價位的X3D系列U，但其實我也沒那麼多3A大作可以玩，所以還是選多工好一點點的7900X。
 
@@ -40,7 +40,7 @@ date: '2023-08-07'
 
 原價屋買的零件到齊後，我就把電腦組起來了，咦？是不是哪裡怪怪的，說了這麼多，還沒提到一個很重要的零件呢？
 
-「顯示卡」
+**「顯示卡」**
 
 沒錯，這個單子裡面沒出現顯卡，所以我組起來的時候，是延用舊的GTX 960 2GB，這段時間一直在等40系列顯卡價錢降價，奈何真的等不到，這個價錢維持好久了，俗話說早買早享受，某一天在滑PChome的時候發現有優惠卷折1500…好了啦，買了。
 
