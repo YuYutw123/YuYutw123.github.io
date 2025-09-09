@@ -16,7 +16,7 @@ export default async function Home() {
                     <Link
                         key={id}
                         href={`/posts/${id}`}
-                        className="block py-4 hover:bg-gray-50 transition-colors"
+                        className="block py-4 px-2 hover:bg-gray-100 transition-colors"
                     >
                         <h2 className="text-xl font-semibold text-gray-800 mb-1">
                             {title}

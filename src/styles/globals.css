@@ -26,3 +26,24 @@ img {
     max-width: 100%;
     display: block;
 }
+
+.text-gradient-br {
+    background-image: linear-gradient(to bottom right, #FF8979, #86A3FF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text; /* for Firefox */
+    color: transparent;
+}
+
+.text-gradient-br:hover {
+    background-image: none;          /* 移除漸層 */
+    -webkit-background-clip: unset;  /* 取消文字裁切背景 */
+    -webkit-text-fill-color: #bfdbfe; /* Tailwind 的 blue-200 */
+    color: #bfdbfe;                  /* 保險起見 */
+}
+
+
+
+.bg-gradient-br-header {
+    background: linear-gradient(to bottom right, #3E1414, #1E0A55);
+}
