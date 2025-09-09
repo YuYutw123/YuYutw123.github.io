@@ -1,10 +1,9 @@
-// app/page.tsx
 import Link from "next/link";
 import { getSortedPostsData } from "@/lib/posts";
 import Date from "@/components/date";
 
 export default async function Home() {
-    const allPostsData = getSortedPostsData();
+    const allPostsData = await getSortedPostsData();
 
     return (
         <div className="max-w-3xl mx-auto px-6 py-12">
@@ -16,6 +15,7 @@ export default async function Home() {
                     <Link
                         key={id}
                         href={`/posts/${id}`}
+                        target="_self"
                         className="block py-4 px-2 hover:bg-gray-100 transition-colors"
                     >
                         <h2 className="text-xl font-semibold text-gray-800 mb-1">
