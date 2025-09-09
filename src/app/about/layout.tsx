@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 export default function AboutLayout({ children }: { children: React.ReactNode }) {
     return (
         <div>
-            <main className="container mx-auto px-4">{children}</main>
+            <main className="container md:mx-auto md:px-4">{children}</main>
         </div>
     );
 }

@@ -1,5 +1,5 @@
 import { visit } from "unist-util-visit";
-import { Root, Parent, Literal } from "mdast";
+import { Root, Parent } from "mdast";
 import { Node } from "unist";
 
 interface DirectiveNode extends Parent {

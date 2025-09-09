@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Redirecting...</title>
+    <script>
+        // 取得當前路徑
+        const path = window.location.pathname;
+        
+        // 所有未知路徑 fallback 到 index.html
+        window.location.replace("/trytrysee/index.html" + window.location.search + window.location.hash);
+    </script>
+</head>
+<body>
+    Redirecting...
+</body>
+</html>

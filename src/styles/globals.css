@@ -14,6 +14,7 @@ body {
     font-family: var(--font-noto-sans-tc);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
 }
 
 * {
