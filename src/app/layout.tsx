@@ -17,7 +17,7 @@ export default function RootLayout({
         <html>
             <body>
                 <Navbar />
-                <div className="overflow-x-hidden md:container lg:mx-auto md:px-4 lg:w-[50vw] min-h-[100vh]">
+                <div className="overflow-x-hidden md:container lg:mx-auto md:px-4 lg:w-[60vw] min-h-[100vh]">
                     {children}
                 </div>
                 <Footer />

@@ -20,7 +20,7 @@ import {
 interface NavItem {
     label: string;
     href: string;
-    icon: IconDefinition; // icon type
+    icon: IconDefinition;
 }
 
 const navItemsTheme1: NavItem[] = [
@@ -41,14 +41,14 @@ export default function Navbar() {
     const [theme, setTheme] = useState<1 | 2>(1); // 1: default, 2: alternative
     const navItems = theme === 1 ? navItemsTheme1 : navItemsTheme2;
 
-    // 主題樣式
+    // Header theme styles
     const headerClasses =
         theme === 1
-            ? "bg-gray-300 text-gray-800 shadow-md"
+            ? "bg-white shadow-blue-200 text-blue-800 shadow-sm"
             : "bg-gradient-br-header text-white shadow-md";
 
     const logoClasses =
-        theme === 1 ? "text-gray-700 font-bold" : "text-gray-300 font-bold";
+        theme === 1 ? "text-blue-600 font-bold" : "text-gray-300 font-bold";
 
     return (
         <header
@@ -62,89 +62,67 @@ export default function Navbar() {
                     </Link>
                 </h1>
 
-                {/* Desktop nav */}
-                <ul className="hidden md:flex space-x-6 text-sm md:text-md">
-                    {navItems.map((item) => (
-                        <li key={item.href}>
-                            <Link
-                                href={item.href}
-                                className={`group flex items-center gap-2 px-2 py-1 rounded-md  ${
-                                    pathname === item.href
-                                        ? theme === 1
-                                            ? "text-gray-900"
-                                            : "text-gradient-br"
-                                        : theme === 1
-                                        ? "text-gray-700 hover:text-gray-900"
-                                        : "text-gradient-br"
-                                }`}
-                            >
-                                <FontAwesomeIcon
-                                    icon={item.icon}
-                                    className={` ${
-                                        pathname === item.href
-                                            ? theme === 1
-                                                ? "text-gray-900 group-hover:text-gray-900"
-                                                : "text-pink-400 group-hover:text-blue-200"
-                                            : theme === 1
-                                            ? "text-gray-700 group-hover:text-gray-900"
-                                            : "text-pink-400 group-hover:text-blue-200"
-                                    }`}
-                                />
-                                <span
-                                    className={`${
+                {/* Right side: desktop nav + theme switch + hamburger */}
+                <div className="flex items-center gap-3 space-x-4 ">
+                    {/* Desktop nav */}
+                    <ul className="hidden md:flex text-sm md:text-md space-x-4 ">
+                        {navItems.map((item) => (
+                            <li key={item.href}>
+                                <Link
+                                    href={item.href}
+                                    className={`group flex items-center gap-2 px-2 py-1 rounded-md ${
                                         pathname === item.href
                                             ? theme === 1
                                                 ? "text-gray-900"
-                                                : "text-gradient-br"
+                                                : "text-blue-200"
                                             : theme === 1
-                                            ? "text-gray-700 group-hover:text-gray-900"
-                                            : "text-gradient-br group-hover:text-blue-200"
+                                            ? "text-gray-500 hover:text-gray-900"
+                                            : "text-gradient-br hover:text-blue-200"
                                     }`}
                                 >
-                                    {item.label}
-                                </span>
-                            </Link>
-
-                        </li>
-                    ))}
-                </ul>
-
-                {/* Theme switch & mobile hamburger */}
-                <div className="flex items-center gap-3">
-                    {/* Switch */}
-                    <div
-                        className={`shadow-inner relative w-16 h-8 flex items-center rounded-md p-1 cursor-pointer select-none transition-colors duration-300
-                            ${theme === 1 ? "bg-gray-700" : "bg-gray-600"}`}
-                    >
-                        {/* 滑塊 */}
-                        <div
-                            className={`absolute top-1 left-1 w-6 h-6 bg-white rounded-md shadow-md transform transition-transform duration-300
-                                ${
-                                    theme === 1
-                                        ? "translate-x-0"
-                                        : "translate-x-8"
-                                }`}
-                        />
-                        {/* Icon */}
-                        <div
-                            className={`absolute left-1.5 top-0.5
-                                        ${
-                                            theme === 1
-                                                ? " text-gray-800"
-                                                : " text-gray-200"
+                                    <FontAwesomeIcon
+                                        icon={item.icon}
+                                        className={`${
+                                            pathname === item.href
+                                                ? theme === 1
+                                                    ? "text-gray-900 group-hover:text-gray-900"
+                                                    : "text-blue-200"
+                                                : theme === 1
+                                                ? "text-gray-500 group-hover:text-gray-900"
+                                                : "text-pink-400 group-hover:text-blue-200"
                                         }`}
+                                    />
+                                    <span>{item.label}</span>
+                                </Link>
+                            </li>
+                        ))}
+                    </ul>
+
+                    {/* Desktop theme switch */}
+                    <div
+                        className={`hidden md:flex shadow-inner relative w-16 h-8 items-center rounded-md p-1 cursor-pointer select-none transition-colors duration-300 ${
+                            theme === 1 ? "bg-gray-700" : "bg-gray-600"
+                        }`}
+                    >
+                        {/* Knob */}
+                        <div
+                            className={`absolute top-1 left-1 w-6 h-6 bg-white rounded-md shadow-md transform transition-transform duration-300 ${
+                                theme === 1 ? "translate-x-0" : "translate-x-8"
+                            }`}
+                        />
+                        {/* Icons */}
+                        <div
+                            className={`absolute left-1.5 top-0.5 ${
+                                theme === 1 ? "text-gray-800" : "text-gray-200"
+                            }`}
                             onClick={() => setTheme(1)}
                         >
                             <FontAwesomeIcon icon={faBriefcase} />
                         </div>
                         <div
-                            className={`absolute right-1.5 top-0.5
-                                        ${
-                                            theme === 1
-                                                ? " text-gray-200"
-                                                : " text-gray-800"
-                                        }`}
-                                        
+                            className={`absolute right-1.5 top-0.5 ${
+                                theme === 1 ? "text-gray-200" : "text-gray-800"
+                            }`}
                             onClick={() => setTheme(2)}
                         >
                             <FontAwesomeIcon icon={faGamepad} />
@@ -155,6 +133,7 @@ export default function Navbar() {
                     <button
                         className="md:hidden text-2xl"
                         onClick={() => setMenuOpen((prev) => !prev)}
+                        aria-label="Toggle menu"
                     >
                         <FontAwesomeIcon icon={menuOpen ? faTimes : faBars} />
                     </button>
@@ -164,14 +143,21 @@ export default function Navbar() {
             {/* Sidebar (mobile) */}
             <div
                 className={`md:hidden fixed top-0 right-0 h-[100vh] w-64 transform transition-transform duration-300 ease-in-out z-40 ${
-                    menuOpen ? "translate-x-0 " : "translate-x-full"
+                    menuOpen ? "translate-x-0" : "translate-x-full"
                 } ${
                     theme === 1
                         ? "bg-gray-200 text-gray-800"
                         : "bg-gradient-br-header text-white"
-                }`}
+                } flex flex-col`}
             >
-                <div className="flex justify-between items-center p-4 border-b border-gray-300">
+                {/* Sidebar header */}
+                <div
+                    className={`flex justify-between items-center p-4 ${
+                        theme === 1
+                            ? "border-b border-gray-300"
+                            : "border-b border-white/20"
+                    }`}
+                >
                     <h2 className="text-lg font-semibold">Menu</h2>
                     <button
                         className="text-2xl"
@@ -180,7 +166,9 @@ export default function Navbar() {
                         <FontAwesomeIcon icon={faTimes} />
                     </button>
                 </div>
-                <ul className="flex flex-col p-4 space-y-4 text-sm">
+
+                {/* Sidebar nav list (fills available height) */}
+                <ul className="flex-1 overflow-y-auto p-4 space-y-4 text-sm">
                     {navItems.map((item) => (
                         <li key={item.href}>
                             <Link
@@ -189,7 +177,7 @@ export default function Navbar() {
                                     pathname === item.href
                                         ? theme === 1
                                             ? "text-gray-900 font-semibold"
-                                            : "text-blue-400 font-semibold"
+                                            : "text-blue-200 font-semibold"
                                         : theme === 1
                                         ? "hover:bg-gray-300"
                                         : "hover:bg-purple-700/50"
@@ -202,6 +190,45 @@ export default function Navbar() {
                         </li>
                     ))}
                 </ul>
+
+                {/* Bottom theme switch (fixed at sidebar bottom) */}
+                <div
+                    className={`p-4 pt-3 ${
+                        theme === 1
+                            ? "border-t border-gray-300"
+                            : "border-t border-white/20"
+                    } pb-[max(1rem,env(safe-area-inset-bottom))] flex justify-end`}
+                >
+                    <div
+                        className={`shadow-inner relative w-16 h-8 flex items-center rounded-md p-1 cursor-pointer select-none transition-colors duration-300 ${
+                            theme === 1 ? "bg-gray-700" : "bg-gray-600"
+                        }`}
+                    >
+                        {/* Knob */}
+                        <div
+                            className={`absolute top-1 left-1 w-6 h-6 bg-white rounded-md shadow-md transform transition-transform duration-300 ${
+                                theme === 1 ? "translate-x-0" : "translate-x-8"
+                            }`}
+                        />
+                        {/* Icons */}
+                        <div
+                            className={`absolute left-1.5 top-0.5 ${
+                                theme === 1 ? "text-gray-800" : "text-gray-200"
+                            }`}
+                            onClick={() => setTheme(1)}
+                        >
+                            <FontAwesomeIcon icon={faBriefcase} />
+                        </div>
+                        <div
+                            className={`absolute right-1.5 top-0.5 ${
+                                theme === 1 ? "text-gray-200" : "text-gray-800"
+                            }`}
+                            onClick={() => setTheme(2)}
+                        >
+                            <FontAwesomeIcon icon={faGamepad} />
+                        </div>
+                    </div>
+                </div>
             </div>
 
             {/* Overlay */}

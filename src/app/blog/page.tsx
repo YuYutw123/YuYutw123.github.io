@@ -1,0 +1,32 @@
+import Link from "next/link";
+import { getSortedPostsData } from "@/lib/posts";
+import Date from "@/components/date";
+
+export default async function Home() {
+    const allPostsData = await getSortedPostsData();
+
+    return (
+        <div className="max-w-3xl mx-auto px-6 py-12">
+            {/* 頁面標題 */}
+            <h1 className="text-4xl font-bold mb-10 text-gray-800">最新文章</h1>
+
+            <section className="divide-y divide-gray-200">
+                {allPostsData.map(({ id, date, title }) => (
+                    <Link
+                        key={id}
+                        href={`/posts/${id}`}
+                        target="_self"
+                        className="block py-4 px-2 hover:bg-gray-100 transition-colors"
+                    >
+                        <h2 className="text-xl font-semibold text-gray-800 mb-1">
+                            {title}
+                        </h2>
+                        <div className="text-sm text-gray-500">
+                            <Date dateString={date} />
+                        </div>
+                    </Link>
+                ))}
+            </section>
+        </div>
+    );
+}
