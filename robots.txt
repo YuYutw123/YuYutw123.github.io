@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://yuyutw123.github.io/sitemap-index.xml
