@@ -1,6 +1,6 @@
 import type { NextConfig } from "next";
 
-const repo = "trytrysee";
+const repo = process.env.BASE_PATH;
 
 const nextConfig: NextConfig = {
     output: "export",

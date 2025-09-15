@@ -2,7 +2,7 @@ import Link from "next/link";
 import { getSortedPostsData } from "@/lib/posts";
 import Date from "@/components/date";
 
-export default async function Home() {
+export default async function Blog() {
     const allPostsData = await getSortedPostsData();
 
     return (

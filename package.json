@@ -2,7 +2,7 @@
     "name": "blog",
     "version": "0.0.1",
     "private": true,
-    "homepage": "https://yuyutw123.github.io/trytrysee",
+    "homepage": "https://yuyutw123.github.io",
     "scripts": {
         "dev": "next dev --turbopack",
         "build": "next build",
