@@ -3,43 +3,14 @@
 import Giscus from "@giscus/react";
 import { useEffect, useState } from "react";
 
-const getSystemTheme = () =>
-    window.matchMedia("(prefers-color-scheme: dark)").matches
-        ? "dark"
-        : "light";
-
-const getSavedTheme = () => window.localStorage.getItem("theme") || "light";
-
 const Comments = () => {
     const [mounted, setMounted] = useState(false);
-    const [theme, setTheme] = useState<"light" | "dark" | "auto">("auto");
-
-    useEffect(() => {
-        // 指定事件型別
-        const handleStorageChange = (event: StorageEvent) => {
-            if (event.key === "theme") {
-                const newTheme =
-                    event.newValue === "auto"
-                        ? getSystemTheme()
-                        : (event.newValue as "light" | "dark") || "light";
-                setTheme(newTheme);
-            }
-        };
-
-        window.addEventListener("storage", handleStorageChange);
-
-        // 初始 theme 設定
-        const savedTheme = getSavedTheme();
-        setTheme(savedTheme === "auto" ? getSystemTheme() : (savedTheme as "light" | "dark"));
-
-        return () => window.removeEventListener("storage", handleStorageChange);
-    }, []);
 
     useEffect(() => {
         setMounted(true);
     }, []);
 
-    if (!mounted) return null; // 避免 SSR hydration error
+    if (!mounted) return null;
 
     return (
         <div id="inject-comments" className="w-full">
@@ -55,7 +26,7 @@ const Comments = () => {
                 inputPosition="top"
                 lang="en"
                 loading="lazy"
-                theme={theme === "auto" ? getSystemTheme() : theme}
+                theme={"light"}
             />
         </div>
     );
