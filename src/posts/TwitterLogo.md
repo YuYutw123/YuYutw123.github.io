@@ -1,12 +1,11 @@
 ---
-title: Browser Extension製作心得
-published: 2023-08-08
-description: '幫你改掉醜醜的X Logo。'
-image: ''
-tags: ["JavaScript", "CSS"]
-category: 'Side project'
-draft: false 
-lang: ''
+title: "Browser Extension製作心得"
+date: "2023-08-08"
+tags: 
+    - JavaScript
+    - CSS
+    - Browser extension
+category: "Side project"
 ---
 
 # 利用瀏覽器插件更改網頁樣貌

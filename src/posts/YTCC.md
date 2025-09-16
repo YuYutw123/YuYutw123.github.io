@@ -1,11 +1,10 @@
 ---
-title: YouTube CC字幕輸出工具
-published: 2022-04-17
-description: '輸出YT CC字幕的東東。'
-# image: '/assets/images/logo.png'
-tags: ["Python", "Tkinter"]
-category: 'Side project'
-draft: false 
+title: "YouTube CC字幕輸出工具"
+date: "2022-04-17"
+tags: 
+    - Python
+    - Tkinter
+category: "Side project"
 ---
 # YouTube CC字幕輸出工具
 

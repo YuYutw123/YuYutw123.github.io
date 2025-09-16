@@ -1,10 +1,10 @@
 ---
-title: Arch Linux TLP 省電
-category: Notes
-description: 我需要電源
-draft: false
-published: 2025-03-16
-tags: ["Linux"]
+title: "Arch Linux TLP 省電"
+category: "日記"
+date: "2025-03-16"
+tags: 
+    - Linux
+    - Arch Linux
 ---
 
 # 安裝

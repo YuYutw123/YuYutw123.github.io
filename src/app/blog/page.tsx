@@ -8,7 +8,7 @@ export default async function Blog() {
     return (
         <div className="max-w-3xl mx-auto px-6 py-12">
             {/* 頁面標題 */}
-            <h1 className="text-4xl font-bold mb-10 text-gray-800">最新文章</h1>
+            <h1 className="text-2xl font-bold mb-10 text-gray-800">最新文章</h1>
 
             <section className="divide-y divide-gray-200">
                 {allPostsData.map(({ id, date, title }) => (

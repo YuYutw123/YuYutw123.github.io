@@ -9,8 +9,8 @@ export default function Profile() {
                 {/* Header */}
                 <ProfileHeader
                     name="YuYutw123"
-                    title="宅斃了"
-                    avatarUrl="https://cdn.discordapp.com/avatars/338661569384808458/1166446de76e6238b8a105914182105c.webp?size=640"
+                    titles={["普通和理所當然是什麼呢", "我也不知道", "為什麼要演奏春日影"]}
+                    avatarUrl="https://cdn.discordapp.com/avatars/338661569384808458/c8423a79902bb2e37aa4620d91129862.webp?size=1280"
                 />
                 <Blog />
             </div>

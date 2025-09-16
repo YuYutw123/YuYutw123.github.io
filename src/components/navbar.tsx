@@ -30,9 +30,7 @@ export default function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false);
     const navItems = navItemsTheme;
 
-    // Header theme styles
-    const headerClasses = "bg-white shadow-blue-200 text-blue-800 shadow-sm";
-
+    const headerClasses = "bg-white text-blue-800 shadow-blue-200 shadow-sm";
     const logoClasses = "text-blue-600 font-bold";
 
     return (
@@ -56,7 +54,7 @@ export default function Navbar() {
                                     className={`group flex items-center gap-2 px-2 py-1 rounded-md ${
                                         pathname === item.href
                                             ? "text-gray-900"
-                                            : "text-gray-500 hover:text-gray-900"
+                                            : "text-gray-700 hover:text-gray-900"
                                     }`}
                                 >
                                     <FontAwesomeIcon
@@ -64,7 +62,7 @@ export default function Navbar() {
                                         className={`${
                                             pathname === item.href
                                                 ? "text-gray-900 group-hover:text-gray-900"
-                                                : "text-gray-500 group-hover:text-gray-900"
+                                                : "text-gray-700 group-hover:text-gray-900"
                                         }`}
                                     />
                                     <span>{item.label}</span>
@@ -111,10 +109,10 @@ export default function Navbar() {
                         <li key={item.href}>
                             <Link
                                 href={item.href}
-                                className={`flex items-center gap-2 px-2 py-2 rounded-md transition-colors duration-300 ${
+                                className={`flex items-center gap-2 px-2 py-2 rounded-md transition-colors hover:bg-gray-300 duration-300 ${
                                     pathname === item.href
-                                        ? "text-gray-900 font-semibold"
-                                        : "hover:bg-gray-300"
+                                        ? "bg-gray-300 text-gray-900"
+                                        : "text-gray-700 font-semibold"
                                 }`}
                                 onClick={() => setMenuOpen(false)}
                             >

@@ -1,10 +1,9 @@
 ---
-title: Debug 日記
-category: Notes
-description: 抓蟲蟲
-draft: false
-published: 2025-05-08
-tags: ["日常"]
+title: "Debug 日記"
+category: "日記"
+date: "2025-05-08"
+tags: 
+    - 抓蟲
 ---
 
 # Node.js
