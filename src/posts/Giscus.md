@@ -95,7 +95,7 @@ const Comments = () => {
   )
 }
 
-export default Comments
+export default Comments;
 
 ```
 

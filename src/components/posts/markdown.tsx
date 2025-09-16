@@ -4,6 +4,8 @@ import remarkGfm from "remark-gfm";
 import remarkDirective from "remark-directive";
 import remarkAdmonition from "@/lib/remarkAdmonition";
 import rehypeHighlight from "rehype-highlight";
+import Comments from './comment'
+
 
 interface MarkdownRendererProps {
     content: string;
@@ -25,6 +27,7 @@ export default function MarkdownRenderer({ content }: MarkdownRendererProps) {
             >
                 {content}
             </ReactMarkdown>
+            <Comments />
         </div>
     );
 }
