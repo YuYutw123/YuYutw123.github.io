@@ -4,16 +4,16 @@ import markdownStyles from '@/styles/markdown.module.css';
 import admonitionStyles from '@/styles/admonition.module.css';
 import MarkdownRenderer from "@/components/posts/markdown";
 import PostTitle from "@/components/posts/postTitle";
-import type { Metadata } from "next";
 
 type PostPageProps = {
-    params: { id: string };
+    params: Promise<{ id: string }>;
 };
 
-export async function generateMetadata({ params }: PostPageProps): Promise<Metadata> {
-    const postData: PostData = await getPostData(params.id);
+export async function generateMetadata({ params }: PostPageProps) {
+    const { id } = await params;
+    const postData: PostData = await getPostData(id);
     return {
-        title: postData.title + " - YuYutw123's Blog",
+        title: postData.title,
     };
 }
 
@@ -25,7 +25,8 @@ export async function generateStaticParams() {
 }
 
 export default async function PostPage({ params }: PostPageProps) {
-    const postData: PostData = await getPostData(params.id);
+    const { id } = await params;
+    const postData: PostData = await getPostData(id);
 
     return (
         <div className="mx-auto px-4 py-8 mb-24">
