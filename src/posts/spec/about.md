@@ -5,36 +5,39 @@
 
 ## 休閒
 
-* 百合 + Furry 愛好者
-  * 漫畫 / 動畫 / 小說
-    * 付き合ってあげてもいいかな
-    * はなにあらし
-    * 奇諾之旅
-    * 魔女之旅
-    * 比宇宙更遠的地方
-    * ...太多了列不完
-  * 跨次元企劃，聲優角色都看
-    * 少女歌劇
-    * BanG Dream
-  * 歐美動畫也看一些
-    * The Owl House
-    * Amphibia
-* Vtuber，淡坑中。
-  * Crossick 入坑
-  * 後來跑去看 Hololive EN 主要看神話組，JP 偶爾看
-  * Nijisanji EN 從 Lazulight 看到 Luxiem
-  * 台V都隨便看看，子午、極深空
-* Twitch，現在也比較少看
-  * KSP
-  * 國內外 Valorant 實況主。
-* 遊戲，都隨便玩玩，會看 FPS 比賽 (VCT, CS2都看)
-  * NieR: Automata
-  * Valorant
-  * CS2
-  * Minecraft
-  * [osu!](https://osu.ppy.sh/users/11899147)
-  * Some indie games
-  * ...etc
+### 百合 + Furry
+* 漫畫 / 動畫 / 小說
+  * 付き合ってあげてもいいかな
+  * はなにあらし
+  * 奇諾之旅
+  * 魔女之旅
+  * 比宇宙更遠的地方
+  * ...太多了列不完
+* 跨次元企劃，聲優角色都看
+  * 少女歌劇
+  * BanG Dream
+* 歐美動畫也看一些
+  * The Owl House
+  * Amphibia
+### Vtuber
+淡坑中
+* Crossick 入坑
+* 後來跑去看 Hololive EN 主要看神話組，JP 偶爾看
+* Nijisanji EN 從 Lazulight 看到 Luxiem
+* 台V都隨便看看，子午、極深空
+### Twitch
+現在也比較少看
+* KSP
+* 國內外 Valorant 實況主。
+### 遊戲
+都隨便玩玩，會看 FPS 比賽 (VCT, CS2都看)
+* NieR: Automata
+* Valorant
+* CS2
+* Minecraft
+* [osu!](https://osu.ppy.sh/users/11899147)
+* Some indie games
+* ...etc
 
 ## 興趣
 喜歡研究各種資訊技術，同時也對影像編輯﹑語言學習感興趣。

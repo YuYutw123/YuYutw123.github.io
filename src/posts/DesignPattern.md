@@ -15,7 +15,7 @@ tags:
 * 總而言之，就是提供一個可以父類別，讓使用者可以根據不同的需求去創造子類別，並實例化父類別的function，不一定每次調用都會創建新的實例
 * ![](/img/DesignPatterns/Pasted_image_20240428164511.png)
 #### Code
-```cpp=
+```cpp
 #include<iostream>
 using namespace std;
 
@@ -117,7 +117,7 @@ int main() {
 * 總而言之，就是根據要求創建不同的工廠，而工廠生產的產品一樣，但是type不同，根據要求返回不同類型的多個產品
 * ![](/img/DesignPatterns/Pasted_image_20240428164453.png)
 #### Code
-```cpp=
+```cpp
 #include<iostream>
 using namespace std;
 
@@ -241,7 +241,7 @@ int main() {
 * 總而言之，就是讓初始化的建構子不要太繁瑣，將對象構造的程式碼從產品類中抽離，並放在一個名為Builder的獨立對象中，Builder不允許其他對象訪問正在建造中的產品。
 * ![](/img/DesignPatterns/Pasted_image_20240427024720.png)
 #### Code
-```cpp=
+```cpp
 #include <iostream>
 #include <string>
 using namespace std;

@@ -1,16 +1,8 @@
 "use client";
 
 import Giscus from "@giscus/react";
-import { useEffect, useState } from "react";
 
 const Comments = () => {
-    const [mounted, setMounted] = useState(false);
-
-    useEffect(() => {
-        setMounted(true);
-    }, []);
-
-    if (!mounted) return null;
 
     return (
         <div id="inject-comments" className="w-full">

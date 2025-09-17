@@ -36,7 +36,7 @@ tags:
 
 ## 用 React 寫一個留言的 Component 偵測主題變換
 
-```js
+```ts
 import Giscus from '@giscus/react'
 import { useEffect, useState } from 'react'
 
@@ -108,7 +108,7 @@ import Comments from '../../components/customize/Comment'
 
 # 結語
 
-之後有機會的話再看看有沒有更好的留言板系統，giscus要登入 Github 才能留言，還是有點小麻煩\:p
+之後有機會的話再看看有沒有更好的留言板系統，giscus要登入 Github 才能留言，還是有點小麻煩
 
 # Reference
 [使用 giscus 为你的 Astro 博客添加评论功能 (By liruifengv李瑞丰)](https://juejin.cn/post/7359405432802607167)

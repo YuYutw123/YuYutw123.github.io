@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap');
 @import "tailwindcss";
+@import "highlight.js/styles/github.css"; 
 
 /* 設定全局字體變數 */
 :root {
