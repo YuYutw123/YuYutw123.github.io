@@ -1,4 +1,3 @@
-// tocClient.tsx
 "use client";
 import TOC from "./toc";
 import { useTOC } from "@/lib/useTOC";
@@ -14,10 +13,13 @@ export default function TOCClient({ postId }: TOCClientProps) {
     useEffect(() => {
         fetch(`/posts/${postId}.md`)
             .then(res => res.text())
-            .then(setContent);
+            .then(setContent)
+            .catch(console.error);
     }, [postId]);
 
     const toc = useTOC(content);
+
     if (!content) return null;
+
     return <TOC toc={toc} />;
 }
