@@ -1,5 +1,5 @@
 1:"$Sreact.fragment"
-2:I[2083,["266","static/chunks/870fdd6f-062bbb44fa9f8a3f.js","619","static/chunks/619-ba102abea3e3d0e4.js","847","static/chunks/847-440709b203ccfc01.js","177","static/chunks/app/layout-4854ec830b7eb51f.js"],"default"]
+2:I[7528,["266","static/chunks/870fdd6f-be9ee37bb16bbc7f.js","619","static/chunks/619-ba102abea3e3d0e4.js","740","static/chunks/740-3f91a9ba7e668940.js","177","static/chunks/app/layout-43cb6c7425560910.js"],"default"]
 3:I[9766,[],""]
 4:I[8924,[],""]
 6:I[4431,[],"OutletBoundary"]
@@ -9,8 +9,20 @@ c:I[4431,[],"MetadataBoundary"]
 d:"$Sreact.suspense"
 f:I[7150,[],""]
 :HL["/_next/static/css/ee818c14562d4b62.css","style"]
-0:{"P":null,"b":"JXOtQlnGDsziOkQKIvqVz","p":"","c":["","posts","DesignPattern"],"i":false,"f":[[["",{"children":["posts",{"children":[["id","DesignPattern","d"],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/ee818c14562d4b62.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"children":["$","body",null,{"children":[["$","$L2",null,{}],["$","div",null,{"className":"overflow-x-hidden md:container lg:mx-auto md:px-4 lg:w-[60vw] min-h-[100vh]","children":["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}],["$","footer",null,{"className":"text-gray-700 text-xs py-2 mt-8 border-1 border-t-blue-200 shadow shadow-blue-200","children":["$","div",null,{"className":"container mx-auto text-center","children":["$","p",null,{"children":["© ",2025," YuYutw123's Blog. All rights reserved."]}]}]}]]}]}]]}],{"children":["posts",["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["id","DesignPattern","d"],["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":["__PAGE__",["$","$1","c",{"children":["$L5",null,["$","$L6",null,{"children":["$L7",["$","$L8",null,{"promise":"$@9"}]]}]]}],{},null,false]},null,false]},null,false]},null,false],["$","$1","h",{"children":[null,[["$","$La",null,{"children":"$Lb"}],null],["$","$Lc",null,{"children":["$","div",null,{"hidden":true,"children":["$","$d",null,{"fallback":null,"children":"$Le"}]}]}]]}],false]],"m":"$undefined","G":["$f",[]],"s":false,"S":true}
-10:T54e,#include<iostream>
+:HL["/_next/static/css/472a4b776a5140fb.css","style"]
+0:{"P":null,"b":"CmnChNyZDUZZzc-2IhcdO","p":"","c":["","posts","DesignPattern"],"i":false,"f":[[["",{"children":["posts",{"children":[["id","DesignPattern","d"],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/ee818c14562d4b62.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"children":["$","body",null,{"children":[["$","$L2",null,{}],["$","div",null,{"className":"overflow-x-hidden md:container lg:mx-auto md:px-4 lg:w-[60vw] min-h-[100vh]","children":["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}],["$","footer",null,{"className":"text-gray-700 text-xs py-2 mt-8 border-1 border-t-blue-200 shadow shadow-blue-200","children":["$","div",null,{"className":"container mx-auto text-center","children":["$","p",null,{"children":["© ",2025," YuYutw123's Blog. All rights reserved."]}]}]}]]}]}]]}],{"children":["posts",["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["id","DesignPattern","d"],["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":["__PAGE__",["$","$1","c",{"children":["$L5",[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/472a4b776a5140fb.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","$L6",null,{"children":["$L7",["$","$L8",null,{"promise":"$@9"}]]}]]}],{},null,false]},null,false]},null,false]},null,false],["$","$1","h",{"children":[null,[["$","$La",null,{"children":"$Lb"}],null],["$","$Lc",null,{"children":["$","div",null,{"hidden":true,"children":["$","$d",null,{"fallback":null,"children":"$Le"}]}]}]]}],false]],"m":"$undefined","G":["$f",[]],"s":false,"S":true}
+10:I[5077,["266","static/chunks/870fdd6f-be9ee37bb16bbc7f.js","740","static/chunks/740-3f91a9ba7e668940.js","623","static/chunks/623-da88888d9fe3f422.js","880","static/chunks/app/posts/%5Bid%5D/page-47740c4b2d8933e3.js"],"default"]
+11:T2ced,
+
+# Creational Patterns
+## Factory Method
+* Creational Patterns
+* provides an interface for creating objects in a superclass, but allows subclasses to alter the type of objects that will be created
+* 總而言之，就是提供一個可以父類別，讓使用者可以根據不同的需求去創造子類別，並實例化父類別的function，不一定每次調用都會創建新的實例
+* ![](/img/DesignPatterns/Pasted_image_20240428164511.png)
+#### Code
+```cpp
+#include<iostream>
 using namespace std;
 
 
@@ -104,9 +116,15 @@ int main() {
 	Client.dialog->render();
 
 }
-5:["$","div",null,{"className":"mx-auto px-4 py-8 mb-24","children":[["$","div",null,{"children":[["$","h1",null,{"className":"text-4xl font-bold mb-4","children":"Design Patterns 筆記"}],["$","div",null,{"className":"text-sm text-gray-600 mb-6 space-y-3","children":[["$","div",null,{"className":"flex items-center gap-2","children":["$","span",null,{"className":"bg-gray-200 text-gray-700 px-3 py-1 rounded-full text-xs font-medium","children":["$","time",null,{"dateTime":"2024-05-14","children":"May 14, 2024"}]}]}],["$","div",null,{"className":"flex items-center gap-2","children":[["$","span",null,{"className":"font-semibold text-gray-500","children":"分類:"}],["$","span",null,{"className":"bg-blue-100 text-blue-700 px-2 py-0.5 rounded-md text-xs font-medium","children":"筆記"}]]}],["$","div",null,{"className":"flex items-center gap-2 flex-wrap","children":[["$","span",null,{"className":"font-semibold text-gray-500","children":"標籤:"}],["$","div",null,{"className":"flex gap-2 flex-wrap","children":[["$","span","0",{"className":"bg-green-100 text-green-700 px-2 py-0.5 rounded-md text-xs font-medium","children":["#","Design Patterns"]}],["$","span","1",{"className":"bg-green-100 text-green-700 px-2 py-0.5 rounded-md text-xs font-medium","children":["#","設計模式"]}]]}]]}]]}]]}],[["$","h1","h1-0",{"children":"Creational Patterns"}],"\n",["$","h2","h2-0",{"children":"Factory Method"}],"\n",["$","ul","ul-0",{"children":["\n",["$","li","li-0",{"children":"Creational Patterns"}],"\n",["$","li","li-1",{"children":"provides an interface for creating objects in a superclass, but allows subclasses to alter the type of objects that will be created"}],"\n",["$","li","li-2",{"children":"總而言之，就是提供一個可以父類別，讓使用者可以根據不同的需求去創造子類別，並實例化父類別的function，不一定每次調用都會創建新的實例"}],"\n",["$","li","li-3",{"children":["$","img","img-0",{"src":"/img/DesignPatterns/Pasted_image_20240428164511.png","alt":""}]}],"\n"]}],"\n",["$","h4","h4-0",{"children":"Code"}],"\n",["$","pre","pre-0",{"children":["$","code","code-0",{"className":"language-cpp","children":"$10"}]}],"\n",["$","h2","h2-1",{"children":"Abstract Factory Method"}],"\n",["$","ul","ul-1",{"children":["\n",["$","li","li-0",{"children":"Creational Patterns"}],"\n",["$","li","li-1",{"children":"lets you produce families of related objects without specifying their concrete classes"}],"\n",["$","li","li-2",{"children":"總而言之，就是根據要求創建不同的工廠，而工廠生產的產品一樣，但是type不同，根據要求返回不同類型的多個產品"}],"\n",["$","li","li-3",{"children":["$","img","img-0",{"src":"/img/DesignPatterns/Pasted_image_20240428164453.png","alt":""}]}],"\n"]}],"\n","$L11","\n","$L12","\n","$L13","\n","$L14","\n","$L15","\n","$L16","\n","$L17","\n","$L18","\n","$L19","\n","$L1a","\n","$L1b","\n","$L1c","\n","$L1d","\n","$L1e","\n","$L1f","\n","$L20","\n","$L21","\n","$L22","\n","$L23","\n","$L24","\n","$L25","\n","$L26","\n","$L27","\n","$L28","\n","$L29","\n","$L2a","\n","$L2b","\n","$L2c","\n","$L2d","\n","$L2e","\n","$L2f","\n","$L30","\n","$L31","\n","$L32","\n","$L33","\n","$L34","\n","$L35","\n","$L36","\n","$L37","\n","$L38","\n","$L39","\n","$L3a"]]}]
-11:["$","h4","h4-1",{"children":"Code"}]
-3b:T745,#include<iostream>
+```
+## Abstract Factory Method
+* Creational Patterns
+* lets you produce families of related objects without specifying their concrete classes
+* 總而言之，就是根據要求創建不同的工廠，而工廠生產的產品一樣，但是type不同，根據要求返回不同類型的多個產品
+* ![](/img/DesignPatterns/Pasted_image_20240428164453.png)
+#### Code
+```cpp
+#include<iostream>
 using namespace std;
 
 
@@ -222,11 +240,15 @@ int main() {
 	Client.main("Mac");
 
 }
-12:["$","pre","pre-1",{"children":["$","code","code-0",{"className":"language-cpp","children":"$3b"}]}]
-13:["$","h2","h2-2",{"children":"Builder Method"}]
-14:["$","ul","ul-2",{"children":["\n",["$","li","li-0",{"children":"Creational Patterns"}],"\n",["$","li","li-1",{"children":"allows you to produce different types and representations of an object using the same construction code."}],"\n",["$","li","li-2",{"children":"總而言之，就是讓初始化的建構子不要太繁瑣，將對象構造的程式碼從產品類中抽離，並放在一個名為Builder的獨立對象中，Builder不允許其他對象訪問正在建造中的產品。"}],"\n",["$","li","li-3",{"children":["$","img","img-0",{"src":"/img/DesignPatterns/Pasted_image_20240427024720.png","alt":""}]}],"\n"]}]
-15:["$","h4","h4-2",{"children":"Code"}]
-3c:Te63,#include <iostream>
+```
+## Builder Method
+* Creational Patterns
+* allows you to produce different types and representations of an object using the same construction code.
+* 總而言之，就是讓初始化的建構子不要太繁瑣，將對象構造的程式碼從產品類中抽離，並放在一個名為Builder的獨立對象中，Builder不允許其他對象訪問正在建造中的產品。
+* ![](/img/DesignPatterns/Pasted_image_20240427024720.png)
+#### Code
+```cpp
+#include <iostream>
 #include <string>
 using namespace std;
 
@@ -398,43 +420,74 @@ int main() {
 	Application client;
 	client.makeCar();
 }
-16:["$","pre","pre-2",{"children":["$","code","code-0",{"className":"language-cpp","children":"$3c"}]}]
-17:["$","h2","h2-3",{"children":"Prototype Method"}]
-18:["$","ul","ul-3",{"children":["\n",["$","li","li-0",{"children":["\n",["$","p","p-0",{"children":"Creational Patterns"}],"\n"]}],"\n",["$","li","li-1",{"children":["\n",["$","p","p-0",{"children":"lets you copy existing objects without making your code dependent on their classes."}],"\n"]}],"\n",["$","li","li-2",{"children":["\n",["$","p","p-0",{"children":"簡單來說，就是做一個通用接口(Prototype)，讓使用者可以用該接口clone不同類型的對象"}],"\n"]}],"\n",["$","li","li-3",{"children":["\n",["$","p","p-0",{"children":["$","img","img-0",{"src":"/img/DesignPatterns/Pasted_image_20240509231212.png","alt":""}]}],"\n"]}],"\n"]}]
-19:["$","h2","h2-4",{"children":"Singleton Method"}]
-1a:["$","ul","ul-4",{"children":["\n",["$","li","li-0",{"children":"Creational Patterns"}],"\n",["$","li","li-1",{"children":"lets you ensure that a class has only one instance, while providing a global access point to this instance."}],"\n",["$","li","li-2",{"children":"保證一個class只有一個instance，並提供一個訪問該instance的global access"}],"\n",["$","li","li-3",{"children":["$","img","img-0",{"src":"/img/DesignPatterns/Pasted_image_20240509231238.png","alt":""}]}],"\n"]}]
-1b:["$","h1","h1-1",{"children":"Strcutional Patterns"}]
-1c:["$","h2","h2-5",{"children":"Adapter Method"}]
-1d:["$","ul","ul-5",{"children":["\n",["$","li","li-0",{"children":"Structural Patterns"}],"\n",["$","li","li-1",{"children":"allows objects with incompatible interfaces to collaborate."}],"\n",["$","li","li-2",{"children":"適配器，轉換資料，讓資料可以換一種格式以供客戶使用其他接口"}],"\n",["$","li","li-3",{"children":["$","img","img-0",{"src":"/img/DesignPatterns/Pasted_image_20240510004608.png","alt":""}]}],"\n"]}]
-1e:["$","h2","h2-6",{"children":"Bridge Method"}]
-1f:["$","ul","ul-6",{"children":["\n",["$","li","li-0",{"children":"Structural Patterns"}],"\n",["$","li","li-1",{"children":"lets you split a large class or a set of closely related classes into two separate hierarchies—abstraction and implementation—which can be developed independently of each other."}],"\n",["$","li","li-2",{"children":"將繼承關係轉換為關聯關係，降低程式碼的複雜度，還有類與類之間的耦合；將抽象與實現解耦，使得兩者可以獨立變化"}],"\n",["$","li","li-3",{"children":"淺顯易懂的影片 https://youtu.be/3Wkp4AEaubI?si=8o4P7IHKFQ9r1QcT"}],"\n"]}]
-20:["$","h2","h2-7",{"children":"Composite Method"}]
-21:["$","ul","ul-7",{"children":["\n",["$","li","li-0",{"children":"就是樹，應該吧"}],"\n"]}]
-22:["$","h2","h2-8",{"children":"Decorator Method"}]
-23:["$","ul","ul-8",{"children":["\n",["$","li","li-0",{"children":"寫一個新的class，對原有的class新增功能；相較於對原有的class新增子類，這個方法不用被限制於原有類，繼承是靜態的，無法在執行時更改已有對象的行為，只能由不同子類創建的對象來替代當前的整個對象；且子類只能有一個父類。"}],"\n",["$","li","li-1",{"children":"所以 Decorator 比生成子類更加靈活。"}],"\n"]}]
-24:["$","h2","h2-9",{"children":"Facade Method"}]
-25:["$","ul","ul-9",{"children":["\n",["$","li","li-0",{"children":"提供用戶一個簡單明瞭的接口，不讓背後繁瑣的系統程序顯現在表面"}],"\n"]}]
-26:["$","h2","h2-10",{"children":"Flyweight Method"}]
-27:["$","ul","ul-10",{"children":["\n",["$","li","li-0",{"children":"將重複的狀態儲存起來，降低系統的浪費"}],"\n"]}]
-28:["$","h2","h2-11",{"children":"Proxy Method"}]
-29:["$","ul","ul-11",{"children":["\n",["$","li","li-0",{"children":"就，代理，可以控制客戶請求，並處理過濾，減少對原系統負荷"}],"\n"]}]
-2a:["$","h1","h1-2",{"children":"Behavioral Design Patterns"}]
-2b:["$","h2","h2-12",{"children":"Chain of Responsibility Method"}]
-2c:["$","ul","ul-12",{"children":["\n",["$","li","li-0",{"children":"對請求處理，一個處理者沒處理完就給下一個，層層遞進，直到請求處理完成"}],"\n"]}]
-2d:["$","h2","h2-13",{"children":"Command Method"}]
-2e:["$","ul","ul-13",{"children":["\n",["$","li","li-0",{"children":"將使用者操作轉換成命令，而不是操作直接對應處理程序"}],"\n"]}]
-2f:["$","h2","h2-14",{"children":"Iterator Method"}]
-30:["$","ul","ul-14",{"children":["\n",["$","li","li-0",{"children":"對collection創建一個迭代器，讓用戶可以獲取下一個元素、當前位置、重新開始迭代等；在不暴露底層結構的情況下遍歷元素。"}],"\n"]}]
-31:["$","h2","h2-15",{"children":"Mediator Method"}]
-32:["$","ul","ul-15",{"children":["\n",["$","li","li-0",{"children":"減少對象之間混亂的依賴關係，限制對象之間的直接交互，迫使對象們藉由一個中介者對象進行合作"}],"\n"]}]
-33:["$","h2","h2-16",{"children":"Memento Method"}]
-34:["$","p","p-0",{"children":"在不破壞對象封裝情況的前提下創建對象狀態快照，可通過讓負責人維護原發器狀態歷史紀錄來簡化原發器代碼"}]
-35:["$","h2","h2-17",{"children":"Observer Method"}]
-36:["$","p","p-1",{"children":"定義一種一對多依賴關係，使得每當一個對象狀態發生改變時，其相關依賴對象皆得到通知並被自動更新"}]
-37:["$","h2","h2-18",{"children":"State Method"}]
-38:["$","p","p-2",{"children":"將原始對象指向每種狀態的class，且將所以與狀態相關的工作委託給狀態class"}]
-39:["$","h2","h2-19",{"children":"Strategy Method"}]
-3a:["$","p","p-3",{"children":"將算法裝到一個名為策略的獨立class，並在需要策略算法時，通過接口將工作委派給策略的class去選擇並回傳演算法"}]
+```
+
+## Prototype Method
+* Creational Patterns
+* lets you copy existing objects without making your code dependent on their classes.
+
+* 簡單來說，就是做一個通用接口(Prototype)，讓使用者可以用該接口clone不同類型的對象
+* ![](/img/DesignPatterns/Pasted_image_20240509231212.png)
+
+## Singleton Method
+* Creational Patterns
+* lets you ensure that a class has only one instance, while providing a global access point to this instance.
+* 保證一個class只有一個instance，並提供一個訪問該instance的global access
+* ![](/img/DesignPatterns/Pasted_image_20240509231238.png)
+
+# Strcutional Patterns
+## Adapter Method
+* Structural Patterns
+* allows objects with incompatible interfaces to collaborate.
+* 適配器，轉換資料，讓資料可以換一種格式以供客戶使用其他接口
+* ![](/img/DesignPatterns/Pasted_image_20240510004608.png)
+
+## Bridge Method
+* Structural Patterns
+* lets you split a large class or a set of closely related classes into two separate hierarchies—abstraction and implementation—which can be developed independently of each other.
+* 將繼承關係轉換為關聯關係，降低程式碼的複雜度，還有類與類之間的耦合；將抽象與實現解耦，使得兩者可以獨立變化
+* 淺顯易懂的影片 https://youtu.be/3Wkp4AEaubI?si=8o4P7IHKFQ9r1QcT
+
+## Composite Method
+* 就是樹，應該吧
+
+## Decorator Method
+* 寫一個新的class，對原有的class新增功能；相較於對原有的class新增子類，這個方法不用被限制於原有類，繼承是靜態的，無法在執行時更改已有對象的行為，只能由不同子類創建的對象來替代當前的整個對象；且子類只能有一個父類。
+* 所以 Decorator 比生成子類更加靈活。
+
+## Facade Method 
+* 提供用戶一個簡單明瞭的接口，不讓背後繁瑣的系統程序顯現在表面
+
+## Flyweight Method 
+* 將重複的狀態儲存起來，降低系統的浪費
+
+## Proxy Method
+* 就，代理，可以控制客戶請求，並處理過濾，減少對原系統負荷
+
+# Behavioral Design Patterns
+## Chain of Responsibility Method 
+* 對請求處理，一個處理者沒處理完就給下一個，層層遞進，直到請求處理完成
+
+## Command Method 
+* 將使用者操作轉換成命令，而不是操作直接對應處理程序
+
+## Iterator Method 
+* 對collection創建一個迭代器，讓用戶可以獲取下一個元素、當前位置、重新開始迭代等；在不暴露底層結構的情況下遍歷元素。
+
+## Mediator Method 
+* 減少對象之間混亂的依賴關係，限制對象之間的直接交互，迫使對象們藉由一個中介者對象進行合作
+
+## Memento Method
+在不破壞對象封裝情況的前提下創建對象狀態快照，可通過讓負責人維護原發器狀態歷史紀錄來簡化原發器代碼
+
+## Observer Method 
+定義一種一對多依賴關係，使得每當一個對象狀態發生改變時，其相關依賴對象皆得到通知並被自動更新
+
+## State Method 
+將原始對象指向每種狀態的class，且將所以與狀態相關的工作委託給狀態class
+
+## Strategy Method
+將算法裝到一個名為策略的獨立class，並在需要策略算法時，通過接口將工作委派給策略的class去選擇並回傳演算法5:["$","div",null,{"className":"mx-auto px-4 py-8 mb-24","children":[["$","div",null,{"children":[["$","h1",null,{"className":"text-4xl font-bold mb-4","children":"Design Patterns 筆記"}],["$","div",null,{"className":"text-sm text-gray-600 mb-6 space-y-3","children":[["$","div",null,{"className":"flex items-center gap-2","children":["$","span",null,{"className":"bg-gray-200 text-gray-700 px-3 py-1 rounded-full text-xs font-medium","children":["$","time",null,{"dateTime":"2024-05-14","children":"May 14, 2024"}]}]}],["$","div",null,{"className":"flex items-center gap-2","children":[["$","span",null,{"className":"font-semibold text-gray-500","children":"分類:"}],["$","span",null,{"className":"bg-blue-100 text-blue-700 px-2 py-0.5 rounded-md text-xs font-medium","children":"筆記"}]]}],["$","div",null,{"className":"flex items-center gap-2 flex-wrap","children":[["$","span",null,{"className":"font-semibold text-gray-500","children":"標籤:"}],["$","div",null,{"className":"flex gap-2 flex-wrap","children":[["$","span","0",{"className":"bg-green-100 text-green-700 px-2 py-0.5 rounded-md text-xs font-medium","children":["#","Design Patterns"]}],["$","span","1",{"className":"bg-green-100 text-green-700 px-2 py-0.5 rounded-md text-xs font-medium","children":["#","設計模式"]}]]}]]}]]}]]}],["$","div",null,{"className":"prose px-1 markdown_markdown__wTkaE admonition_admonitionWrapper__ACM9e","children":["$","$L10",null,{"content":"$11"}]}]]}]
 b:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
 7:null
 9:{"metadata":[["$","title","0",{"children":"Design Patterns 筆記 - YuYutw123's Blog"}],["$","meta","1",{"name":"description","content":"Wanna sleep zzZ..."}]],"error":null,"digest":"$undefined"}
