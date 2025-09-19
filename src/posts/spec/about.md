@@ -78,7 +78,7 @@
 * 靜態網頁接案*2
 
 
-## 各種連結
+## 連結
 
 * [Email](mailto:yuyutw878787@gmail.com)
 * [Twitter](https://twitter.com/@yutw_yu)：發發廢文。
