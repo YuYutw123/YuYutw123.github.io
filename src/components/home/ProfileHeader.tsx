@@ -44,12 +44,12 @@ export default function ProfileHeader({
         <section className="mx-4 flex flex-col md:flex-row items-center gap-8 md:gap-12 rounded-xl bg-white p-8 shadow-blue-200 shadow-sm border border-gray-200">
             <div className="flex-shrink-0">
                 <div
-                    className="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-40 md:size-48 border-2 shadow-md shadow-blue-200 border-blue-100"
+                    className="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-32 md:size-24 border-2 shadow-md shadow-blue-200 border-blue-100"
                     style={{ backgroundImage: `url("${avatarUrl}")` }}
                 />
             </div>
             <div className="text-center md:text-left">
-                <h1 className="text-3xl font-bold tracking-tight text-gray-900 text-shadow-sm">
+                <h1 className="text-2xl font-bold tracking-tight text-gray-900 text-shadow-sm">
                     {name}
                 </h1>
 

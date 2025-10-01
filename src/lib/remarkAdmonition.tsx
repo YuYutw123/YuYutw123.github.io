@@ -5,24 +5,34 @@ import { Node } from "unist";
 interface DirectiveNode extends Parent {
     type: "containerDirective" | "leafDirective" | "textDirective";
     name: string;
-    data?: Record<string, unknown>; // 不使用 any
+    data?: Record<string, unknown>;
 }
 
 export default function remarkAdmonition() {
     return (tree: Root) => {
         visit(tree, (node: Node) => {
-            if ((node as DirectiveNode).type === "containerDirective") {
-                const directiveNode = node as DirectiveNode;
-                if (!directiveNode.data) {
-                    directiveNode.data = {};
-                }
-                // 明確地告訴 TypeScript data 是 Record<string, unknown>
-                const data = directiveNode.data as Record<string, unknown>;
-                data.hName = "div";
-                data.hProperties = {
-                    className: ["admonition", directiveNode.name],
-                };
+            const directiveNode = node as DirectiveNode;
+
+            // 只處理 containerDirective (:::note / :::tip / :::warning)
+            if (directiveNode.type !== "containerDirective") {
+                return;
             }
+
+            // 僅允許特定名稱的 directive
+            const allowed = ["note", "tip", "warning", "important"];
+            if (!allowed.includes(directiveNode.name)) {
+                return;
+            }
+
+            if (!directiveNode.data) {
+                directiveNode.data = {};
+            }
+
+            const data = directiveNode.data as Record<string, unknown>;
+            data.hName = "div";
+            data.hProperties = {
+                className: ["admonition", directiveNode.name],
+            };
         });
     };
 }

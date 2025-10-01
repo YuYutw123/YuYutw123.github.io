@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "../../styles/globals.css";
 
 export const metadata: Metadata = {
-    title: "About - YuYutw123's Blog",
-    description: "Learn more about me and my blog",
+    title: "Gallery - YuYutw123's Blog",
+    description: "Some pics.",
 };
 
 export default function AboutLayout({ children }: { children: React.ReactNode }) {

@@ -6,6 +6,9 @@ import Footer from "@/components/footer";
 export const metadata: Metadata = {
     title: "YuYutw123's Blog",
     description: "Wanna sleep zzZ...",
+    icons: {
+        icon: "/yuyu.png",
+    },
 };
 
 export default function RootLayout({

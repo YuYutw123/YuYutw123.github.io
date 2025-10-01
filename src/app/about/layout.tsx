@@ -4,6 +4,9 @@ import "../../styles/globals.css";
 export const metadata: Metadata = {
     title: "About - YuYutw123's Blog",
     description: "Learn more about me and my blog",
+    icons: {
+        icon: "/yuyu.png",
+    },
 };
 
 export default function AboutLayout({ children }: { children: React.ReactNode }) {

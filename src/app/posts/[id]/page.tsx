@@ -21,6 +21,9 @@ export async function generateMetadata(
     const postData: PostData = await getPostData(id);
     return {
         title: postData.title + " - YuYutw123's Blog",
+        icons: {
+            icon: "/yuyu.png",
+        },
     };
 }
 
@@ -42,6 +45,8 @@ export default async function PostPage({ params }: PostPageProps) {
                 <MarkdownRenderer content={postData.contentMarkdown} />
                 {/* <TOCClient content={postData.contentMarkdown} /> */}
                 <TOCClient postId={id} />
+            </div>
+            <div className="mt-40">
                 <Comment />
             </div>
         </div>

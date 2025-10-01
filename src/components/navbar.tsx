@@ -54,7 +54,7 @@ export default function Navbar() {
                                     className={`group flex items-center gap-2 px-2 py-1 rounded-md ${
                                         pathname === item.href
                                             ? "text-gray-900"
-                                            : "text-gray-700 hover:text-gray-900"
+                                            : "text-gray-500 hover:text-gray-900"
                                     }`}
                                 >
                                     <FontAwesomeIcon
@@ -62,7 +62,7 @@ export default function Navbar() {
                                         className={`${
                                             pathname === item.href
                                                 ? "text-gray-900 group-hover:text-gray-900"
-                                                : "text-gray-700 group-hover:text-gray-900"
+                                                : "text-gray-500 group-hover:text-gray-900"
                                         }`}
                                     />
                                     <span>{item.label}</span>
