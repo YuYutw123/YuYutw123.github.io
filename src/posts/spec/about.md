@@ -31,6 +31,7 @@
 * 國內外 Valorant 實況主。
 ### 遊戲
 都隨便玩玩，會看 FPS 比賽 (VCT, CS2都看)
+最近在玩絲之歌
 * NieR: Automata
 * Valorant
 * CS2

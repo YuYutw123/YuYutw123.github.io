@@ -1,38 +1,45 @@
 import { visit } from "unist-util-visit";
-import { Root, Parent } from "mdast";
+import { Root, Parent, Text } from "mdast";
 import { Node } from "unist";
 
 interface DirectiveNode extends Parent {
     type: "containerDirective" | "leafDirective" | "textDirective";
     name: string;
     data?: Record<string, unknown>;
+    value?: string;
 }
 
 export default function remarkAdmonition() {
     return (tree: Root) => {
-        visit(tree, (node: Node) => {
+        visit(tree, (node: Node, index, parent) => {
             const directiveNode = node as DirectiveNode;
 
-            // 只處理 containerDirective (:::note / :::tip / :::warning)
-            if (directiveNode.type !== "containerDirective") {
+            if (directiveNode.type === "textDirective" || directiveNode.type === "leafDirective") {
+                if (parent && typeof index === "number") {
+                    (parent as Parent).children[index] = {
+                        type: "text",
+                        value: `:${directiveNode.name}`,
+                    } as Text;
+                }
                 return;
             }
 
-            // 僅允許特定名稱的 directive
-            const allowed = ["note", "tip", "warning", "important"];
-            if (!allowed.includes(directiveNode.name)) {
-                return;
-            }
+            if (directiveNode.type === "containerDirective") {
+                const allowed = ["info", "warning"];
+                if (!allowed.includes(directiveNode.name)) {
+                    return;
+                }
 
-            if (!directiveNode.data) {
-                directiveNode.data = {};
-            }
+                if (!directiveNode.data) {
+                    directiveNode.data = {};
+                }
 
-            const data = directiveNode.data as Record<string, unknown>;
-            data.hName = "div";
-            data.hProperties = {
-                className: ["admonition", directiveNode.name],
-            };
+                const data = directiveNode.data as Record<string, unknown>;
+                data.hName = "div";
+                data.hProperties = {
+                    className: ["admonition", directiveNode.name],
+                };
+            }
         });
     };
 }

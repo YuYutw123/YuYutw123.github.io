@@ -3,6 +3,7 @@ import remarkGfm from "remark-gfm";
 import remarkDirective from "remark-directive";
 import remarkAdmonition from "@/lib/remarkAdmonition";
 import rehypeHighlight from "rehype-highlight";
+import remarkBreaks from "remark-breaks";
 import CodeBlock from "./codeBlock";
 import PreBlock from "./preBlock";
 import { generateId } from "@/lib/generateId";
@@ -16,7 +17,7 @@ export default function MarkdownRenderer({ content }: MarkdownRendererProps) {
     return (
         <div className="markdown relative">
             <ReactMarkdown
-                remarkPlugins={[remarkGfm, remarkDirective, remarkAdmonition]}
+                remarkPlugins={[remarkGfm, remarkDirective, remarkAdmonition, remarkBreaks]}
                 rehypePlugins={[rehypeHighlight]}
                 components={{
                     a: ({ children, ...props }) => (
