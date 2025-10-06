@@ -121,6 +121,12 @@
     margin: 16px 0;
 }
 
+@media screen and (max-width: 768px) {
+    .markdown img {
+        max-width: 80%;
+    }
+}
+
 .markdown pre {
     background-color: #f6f8fa; /* 淺灰背景 */
     padding: 16px;
