@@ -17,6 +17,7 @@
         "@fortawesome/react-fontawesome": "^3.0.2",
         "@giscus/react": "^3.1.0",
         "date-fns": "^4.1.0",
+        "emoji-dictionary": "^1.0.12",
         "gray-matter": "^4.0.3",
         "next": "^15.5.2",
         "react": "^19.1.1",
@@ -26,6 +27,8 @@
         "remark-admonition": "^2.0.0",
         "remark-breaks": "^4.0.0",
         "remark-directive": "^4.0.0",
+        "remark-emoji": "^5.0.2",
+        "remark-gemoji": "^8.0.0",
         "remark-gfm": "^4.0.1"
     },
     "devDependencies": {

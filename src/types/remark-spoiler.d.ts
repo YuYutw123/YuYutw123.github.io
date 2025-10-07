@@ -1,9 +1,8 @@
-// types/react-markdown-spoiler.d.ts
 import type { ComponentType, ReactNode } from "react";
-import type { SpoilerNode } from "@/lib/remarkSpoiler";
+import type { Spoiler } from "mdast";
 
 declare module "react-markdown" {
     interface Components {
-        spoiler?: ComponentType<{ node: SpoilerNode; children: ReactNode }>;
+        spoiler?: ComponentType<{ node: Spoiler; children: ReactNode }>;
     }
 }

@@ -6,6 +6,8 @@ import remarkAdmonition from "@/lib/remarkAdmonition";
 import rehypeHighlight from "rehype-highlight";
 import remarkBreaks from "remark-breaks";
 import remarkSpoiler from "@/lib/remarkSpoiler";
+// import remarkEmoji from "remark-emoji";
+// import remarkGemoji from "remark-gemoji";
 import CodeBlock from "./codeBlock";
 import PreBlock from "./preBlock";
 import { generateId } from "@/lib/generateId";
@@ -28,6 +30,8 @@ export default function MarkdownRenderer({ content }: MarkdownRendererProps) {
                     remarkAdmonition,
                     remarkBreaks,
                     remarkSpoiler,
+                    // remarkEmoji,
+                    // remarkGemoji
                 ]}
                 rehypePlugins={[rehypeHighlight]}
                 components={{

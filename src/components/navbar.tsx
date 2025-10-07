@@ -10,6 +10,7 @@ import {
     faHome,
     faImages,
     faUser,
+    faBook,
     IconDefinition,
 } from "@fortawesome/free-solid-svg-icons";
 
@@ -22,6 +23,7 @@ interface NavItem {
 const navItemsTheme: NavItem[] = [
     { label: "Home", href: "/", icon: faHome },
     { label: "About", href: "/about", icon: faUser },
+    { label: "Diary", href: "/diary", icon: faBook },
     { label: "Gallery", href: "/gallery", icon: faImages },
 ];
 

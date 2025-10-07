@@ -38,6 +38,67 @@ export function getSortedPostsData(): PostData[] {
     return allPostsData.sort((a, b) => (a.date < b.date ? 1 : -1));
 }
 
+export function getNonDiaryPostsData(): PostData[] {
+    if (!fs.existsSync(postsDirectory)) return [];
+
+    const fileNames = fs.readdirSync(postsDirectory);
+
+    const allPostsData: PostData[] = fileNames
+        .filter(fileName => fileName.endsWith(".md"))
+        .map(fileName => {
+            const fullPath = path.join(postsDirectory, fileName);
+
+            // 檢查是否為檔案
+            if (!fs.statSync(fullPath).isFile()) return null;
+
+            const fileContents = fs.readFileSync(fullPath, "utf8");
+            const matterResult = matter(fileContents);
+
+            return {
+                id: fileName.replace(/\.md$/, ""),
+                title: matterResult.data.title ?? "Untitled",
+                date: matterResult.data.date ?? "",
+                tags: matterResult.data.tags ?? [],
+                category: matterResult.data.category ?? "",
+                contentMarkdown: matterResult.content,
+            };
+        })
+        .filter(post => post !== null && post.category !== "日記") as PostData[];
+
+    return allPostsData.sort((a, b) => (a.date < b.date ? 1 : -1));
+}
+
+
+export function getDiaryPostsData(): PostData[] {
+    if (!fs.existsSync(postsDirectory)) return [];
+
+    const fileNames = fs.readdirSync(postsDirectory);
+
+    const allPostsData: PostData[] = fileNames
+        .filter(fileName => fileName.endsWith(".md"))
+        .map(fileName => {
+            const fullPath = path.join(postsDirectory, fileName);
+
+            // 檢查是否為檔案
+            if (!fs.statSync(fullPath).isFile()) return null;
+
+            const fileContents = fs.readFileSync(fullPath, "utf8");
+            const matterResult = matter(fileContents);
+
+            return {
+                id: fileName.replace(/\.md$/, ""),
+                title: matterResult.data.title ?? "Untitled",
+                date: matterResult.data.date ?? "",
+                tags: matterResult.data.tags ?? [],
+                category: matterResult.data.category ?? "",
+                contentMarkdown: matterResult.content,
+            };
+        })
+        .filter(post => post !== null && post.category == "日記") as PostData[];
+
+    return allPostsData.sort((a, b) => (a.date < b.date ? 1 : -1));
+}
+
 /**
  * 取得所有文章 ID，用於 generateStaticParams
  */

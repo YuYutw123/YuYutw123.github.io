@@ -1,9 +1,9 @@
 import Link from "next/link";
-import { getNonDiaryPostsData } from "@/lib/posts";
+import { getDiaryPostsData } from "@/lib/posts";
 import Date from "@/components/date";
 
 export default async function Blog() {
-    const allPostsData = await getNonDiaryPostsData();
+    const allPostsData = await getDiaryPostsData();
 
     return (
         <div className="max-w-3xl mx-auto px-6 pt-6 pb-12">

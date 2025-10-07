@@ -1,7 +1,7 @@
 ---
 title: "新Blog耶"
 date: "2025-10-01"
-category: "日記"
+category: "筆記"
 ---
 
 # 緣由
