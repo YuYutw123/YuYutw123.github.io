@@ -4,7 +4,7 @@ import Date from "@/components/date";
 export default function PostTitle({ postData }: { postData: PostData }) {
     return (
         <div>
-            <h1 className="text-4xl font-bold mb-4">{postData.title}</h1>
+            <h1 className="text-3xl font-bold mb-4">{postData.title}</h1>
             <div className="text-sm text-gray-600 mb-6 space-y-3">
                 {/* 日期 */}
                 <div className="flex items-center gap-2">

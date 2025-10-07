@@ -49,6 +49,7 @@
 -   CS2
 -   Minecraft
 -   [osu!](https://osu.ppy.sh/users/11899147)
+-   Othello Quest (ID: hh1237)
 -   Some indie games
 -   ...etc
 

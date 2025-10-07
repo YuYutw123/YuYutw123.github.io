@@ -14,7 +14,7 @@ export default function Profile() {
                         "我也不知道",
                         "為什麼要演奏春日影",
                     ]}
-                    avatarUrl="https://cdn.discordapp.com/avatars/338661569384808458/c8423a79902bb2e37aa4620d91129862.webp?size=1280"
+                    avatarUrl="/yuyu.png"
                 />
                 <Blog />
             </div>

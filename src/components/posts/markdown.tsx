@@ -1,9 +1,11 @@
 import ReactMarkdown from "react-markdown";
+import type { Components } from "react-markdown";
 import remarkGfm from "remark-gfm";
 import remarkDirective from "remark-directive";
 import remarkAdmonition from "@/lib/remarkAdmonition";
 import rehypeHighlight from "rehype-highlight";
 import remarkBreaks from "remark-breaks";
+import remarkSpoiler from "@/lib/remarkSpoiler";
 import CodeBlock from "./codeBlock";
 import PreBlock from "./preBlock";
 import { generateId } from "@/lib/generateId";
@@ -12,12 +14,21 @@ interface MarkdownRendererProps {
     content: string;
 }
 
-export default function MarkdownRenderer({ content }: MarkdownRendererProps) {
+type CustomComponents = Components & {
+    spoiler?: React.ComponentType<{ children?: React.ReactNode }>;
+};
 
+export default function MarkdownRenderer({ content }: MarkdownRendererProps) {
     return (
         <div className="markdown relative">
             <ReactMarkdown
-                remarkPlugins={[remarkGfm, remarkDirective, remarkAdmonition, remarkBreaks]}
+                remarkPlugins={[
+                    remarkGfm,
+                    remarkDirective,
+                    remarkAdmonition,
+                    remarkBreaks,
+                    remarkSpoiler,
+                ]}
                 rehypePlugins={[rehypeHighlight]}
                 components={{
                     a: ({ children, ...props }) => (
@@ -50,7 +61,8 @@ export default function MarkdownRenderer({ content }: MarkdownRendererProps) {
                         const id = generateId(text, lineNumber);
                         return <h3 id={id}>{children}</h3>;
                     },
-                }}
+                    spoiler: ({ children }) => <span className="spoiler">{children}</span>,
+                } as CustomComponents}
             >
                 {content}
             </ReactMarkdown>

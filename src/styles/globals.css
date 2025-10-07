@@ -28,23 +28,16 @@ img {
     display: block;
 }
 
-.text-gradient-br {
-    background-image: linear-gradient(to bottom right, #FF8979, #86A3FF);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text; /* for Firefox */
+.spoiler {
+    background-color: #4b4b4bff;
     color: transparent;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: color 0.3s ease, background-color 0.3s ease;
+    padding:0 5px 0 5px;
 }
 
-.text-gradient-br:hover {
-    background-image: none;          /* 移除漸層 */
-    -webkit-background-clip: unset;  /* 取消文字裁切背景 */
-    -webkit-text-fill-color: #bfdbfe; /* Tailwind 的 blue-200 */
-    color: #bfdbfe;                  /* 保險起見 */
-}
-
-
-
-.bg-gradient-br-header {
-    background: linear-gradient(to bottom right, #3E1414, #1E0A55);
+.spoiler:hover {
+    color: inherit;
+    background-color: #d8d8d8ff;
 }
