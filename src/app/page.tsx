@@ -4,7 +4,7 @@ import Blog from "./blog/page";
 
 export default function Profile() {
     return (
-        <main className="min-h-screen flex flex-1 justify-center pt-12 sm:px-6 lg:px-8 bg-gray-50">
+        <main className="min-h-screen flex flex-1 justify-center pt-12 sm:px-6 lg:px-8">
             <div className="w-full max-w-4xl space-y-12">
                 {/* Header */}
                 <ProfileHeader

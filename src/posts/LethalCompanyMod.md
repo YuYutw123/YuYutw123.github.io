@@ -46,13 +46,13 @@ category: "Side project"
 ## 設定模型
 
 ### 基本設定
-點擊你的FBX檔，右邊會跳出 Inspector<br>
-設定 **Humanoid**、**Create From This Model**<br>
+點擊你的FBX檔，右邊會跳出 Inspector
+設定 **Humanoid**、**Create From This Model**
 點 **Apply**
 ![alt text](/LethalCompanyMod/image-8.png)
 
-跑完後，點擊Configure，檢查你的骨架有沒有正確<br>
-然後姿勢要呈**T字形** <br>
+跑完後，點擊Configure，檢查你的骨架有沒有正確
+然後姿勢要呈**T字形** 
 
 弄好就按 **Apply**
 ![alt text](/LethalCompanyMod/image-9.png)
@@ -67,8 +67,8 @@ category: "Side project"
         * 貼上這個 [連結](https://github.com/BunyaPineTree/LethalCompany_ModelReplacementSDK.git#upm)，點 **Add**
     ![alt text](/LethalCompanyMod/image-13.png)
 * 套用到你的模型
-    * 設面步驟設定完後，把你的 Model 丟進去場景<br>
-    選取你的 Model，然後在 ModelReplacementSDK 中選擇 **Setup Model**<br>
+    * 設面步驟設定完後，把你的 Model 丟進去場景
+    選取你的 Model，然後在 ModelReplacementSDK 中選擇 **Setup Model**
     弄完就會生出兩個物件
     ![alt text](/LethalCompanyMod/image-11.png)
     ![alt text](/LethalCompanyMod/image-14.png)
@@ -84,8 +84,8 @@ category: "Side project"
 * 在 Assets 空白處點右鍵，選 Create -> ModelReplacemectSDK -> Create Project
     ![alt text](/LethalCompanyMod/image-19.png)
 * 接下來把所有你要用的 Model 都綁到 Project
-    * 在 Model 的 Inspector 中<br>
-    Model Replacement Properties -> Project Properties -> Project<br>
+    * 在 Model 的 Inspector 中
+    Model Replacement Properties -> Project Properties -> Project
     選擇你剛剛創建的 Project
     ![alt text](/LethalCompanyMod/image-21.png)
 * 綁完後到 Project 物件中，點擊 **Build Project**
@@ -96,26 +96,26 @@ category: "Side project"
 
 # 寫模組時間
 ## Visual Studio 專案
-* 創建專案，選 **Class Library (.NET Framework)**<br>
+* 創建專案，選 **Class Library (.NET Framework)**
     ![alt text](/LethalCompanyMod/image-23.png)
-* 添加專案需要的 Reference<br>
-    對專案名稱點右鍵，Add -> Reference...<br>
-    詳細添加操作請參考[這個影片](https://youtu.be/4Q7Zp5K2ywI?si=ABXuQr-U05u5-irQ&t=378)<br>
+* 添加專案需要的 Reference
+    對專案名稱點右鍵，Add -> Reference...
+    詳細添加操作請參考[這個影片](https://youtu.be/4Q7Zp5K2ywI?si=ABXuQr-U05u5-irQ&t=378)
     **以下是我用到的Reference**
     * [BepInEx](https://github.com/BepInEx/BepInEx/releases/tag/v5.4.23.2)
     * [More Suits](https://thunderstore.io/c/lethal-company/p/x753/More_Suits/source/)
     * [ModelReplacementAPI](https://github.com/BunyaPineTree/LethalCompany_ModelReplacementAPI/releases/tag/Release_v2.4.5)
     * 剩下的應該可以在`C:\Steam\steamapps\common\Lethal Company\Lethal Company_Data\Managed`找到
     ![alt text](/LethalCompanyMod/image-29.png)
-* 專案結構長這樣，詳細程式碼可以到我的 [Github Repo](https://github.com/YuYutw123/MyGO-Together) 看，照樣造句改就好了<br>
+* 專案結構長這樣，詳細程式碼可以到我的 [Github Repo](https://github.com/YuYutw123/MyGO-Together) 看，照樣造句改就好了
     ModelReplacementAPI.dll 則在[這邊](https://github.com/BunyaPineTree/LethalCompany_ModelReplacementAPI/releases/tag/Release_v2.4.5)下載
     ![alt text](/LethalCompanyMod/image-27.png)
 ## 導出 dll 檔
 * 寫完 code 後，先點選你的 bundle 檔案
-    在下面 Advanced 的 Build Action 中選擇 **Embedded Resource**<br>
+    在下面 Advanced 的 Build Action 中選擇 **Embedded Resource**
     這樣你的模組檔案才會嵌入到 dll 檔裡面
     ![alt text](/LethalCompanyMod/image-32.png)
-* 設定完後，點 **Build**<br>
+* 設定完後，點 **Build**
     然後到指定的地方找到你的 dll 檔
     ![alt text](/LethalCompanyMod/image-31.png)
 
