@@ -5,6 +5,7 @@
 /* 設定全局字體變數 */
 :root {
     --font-noto-sans-tc: 'Noto Sans TC', sans-serif;
+    text-autospace: normal;
 }
 html,
 body {
